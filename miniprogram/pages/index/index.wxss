@@ -17,3 +17,22 @@
   background-color: aqua;
   border-radius: 30rpx;
 }
+
+.notice {
+  padding: 15px;
+}
+
+.notice swiper {
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+
+.notice-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 40px;
+  padding: 0 15px;
+  text-align: center;
+}

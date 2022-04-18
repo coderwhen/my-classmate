@@ -14,3 +14,21 @@
     </block>
   </swiper>
 </view>
+
+<view class="notice">
+  <swiper
+    vertical
+    autoplay
+    circular
+  >
+    <block wx:for="notices" wx:for-item="notice" wx:key="*this">
+      <swiper-item>
+        <view class="notice-item">
+          <text>{{ notice }}</text>
+          <view style="flex-grow: 1; overflow: hidden; height: 40px;">阿萨德很快就按时带回家阿克苏和的控件按时活动空间啊哈是框架</view>
+          <view>{{ index }}</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

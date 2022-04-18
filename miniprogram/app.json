@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/profile/index",
+    "pages/message/index",
+    "pages/book/index"
   ],
   "window": {
     "backgroundColor": "#ffffff",
@@ -8,6 +11,26 @@
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "我们的同学录",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#0FCEED",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/book/index",
+        "text": "同学录"
+      },
+      {
+        "pagePath": "pages/message/index",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

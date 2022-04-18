@@ -1,0 +1,19 @@
+/**index.wxss**/
+
+.banner {
+  background-color: #ffffff;
+}
+
+.swiper {
+  height: 260rpx;
+  padding: 15px;
+}
+
+.swiper .box {
+  color: #ffffff;
+  text-align: center;
+  height: 260rpx;
+  line-height: 260rpx;
+  background-color: aqua;
+  border-radius: 30rpx;
+}

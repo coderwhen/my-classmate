@@ -1,0 +1,1 @@
+"D:\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e wwxp-2krlz --n quickstartFunctions --r --project "E:\Learn\MiniProgram\my-classmate" --report_first --report

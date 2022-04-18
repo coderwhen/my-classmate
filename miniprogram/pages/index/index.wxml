@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="banner">
+  <swiper 
+    class="swiper" 
+    indicator-dots
+    indicator-active-color="#fff"
+    autoplay
+    circular
+  >
+    <block wx:for="{{ banners }}" wx:for-item="banner" wx:key="*this">
+      <swiper-item>
+        <view class="box">轮播图{{ banner }}</view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

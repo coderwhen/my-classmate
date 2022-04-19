@@ -55,6 +55,7 @@
 .notice-item .content {
   flex: 1;
   color: #777777;
+  font-size: 14px;
 }
 
 .notice-item .arrow {

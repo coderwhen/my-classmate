@@ -19,3 +19,8 @@ button {
   overflow: hidden;
   word-break: break-all;
 }
+
+/*  */
+button[type='primary'] {
+  background-color: #0FCEED !important;
+}

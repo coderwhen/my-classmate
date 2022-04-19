@@ -1,2 +1,7 @@
 <!--pages/message/index.wxml-->
 <text>pages/message/index.wxml</text>
+
+<view class="bottom">
+    <text>123ashdakjshkj</text>
+    <button type="primary" size="mini">一键登录</button>
+</view>

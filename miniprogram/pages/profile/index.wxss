@@ -1,1 +1,74 @@
 /* pages/profile/index.wxss */
+
+.userinfo {
+    display: flex;
+    padding: 15px;
+    align-items: center;
+}
+
+.userinfo.hover {
+    background-color: #ffffff;
+}
+
+.userinfo .avatar {
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar image {
+    width: 100%;
+    height: 100%;
+}
+
+.userinfo .r {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30rpx;
+}
+
+.my-info {
+    height: 100px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+}
+
+.my-info .item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.my-info .item .count {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.menu-list {
+    margin-top: 30rpx;
+    /* margin-left: ; */
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 40px;
+    padding: 0 15px;
+    background-color: #ffffff;
+}
+
+.menu-item.active {
+    background-color: #f8f8f8;
+}
+
+.menu-item .icon {
+    width: 20px;
+    height: 20px;
+}

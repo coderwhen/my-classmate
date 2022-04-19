@@ -1,2 +1,52 @@
 <!--pages/profile/index.wxml-->
-<text>pages/profile/index.wxml</text>
+<view class="userinfo" hover-class="hover" bindtap="handleUserInfoClick">
+    <view class="avatar">
+        <open-data wx:if="{{ !userInfo }}" type="userAvatarUrl"></open-data>
+        <image wx:else src="{{ userInfo.avatarUrl }}"></image>
+    </view>
+    <view class="r">
+        <block wx:if="{{ !userInfo }}">
+            <text>登录</text>
+            <text>微信快速登录</text>
+        </block>
+        <block wx:else>
+            <text>{{ userInfo.nickName }}</text>
+            <button size="mini">更新头像</button>
+        </block>
+    </view>
+</view>
+<view class="my-info">
+    <view class="item">
+        <text class="count">1</text>
+        <text>我的同学录</text>
+    </view>
+    <view class="item">
+        <text class="count">1</text>
+        <text>我的同学录</text>
+    </view>
+    <view class="item">
+        <text class="count">1</text>
+        <text>我的同学录</text>
+    </view>
+</view>
+
+<view class="menu-list">
+    <view class="menu-item" hover-class="active">
+        <text>设置</text>
+        <image class="icon" src="/images/arrow.svg"></image>
+    </view>
+    <view class="menu-item" hover-class="active">
+        <text>设置</text>
+        <image class="icon" src="/images/arrow.svg"></image>
+    </view>
+    <view class="menu-item" hover-class="active">
+        <text>设置</text>
+        <image class="icon" src="/images/arrow.svg"></image>
+    </view>
+</view>
+<view class="menu-list">
+    <view class="menu-item" hover-class="active">
+        <text>设置</text>
+        <image class="icon" src="/images/arrow.svg"></image>
+    </view>
+</view>

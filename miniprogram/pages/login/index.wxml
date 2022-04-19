@@ -1,0 +1,11 @@
+<!--pages/login/index.wxml-->
+
+<view class="login">
+    <view class="avatar">
+        <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="btn">
+        <button type="primary" bindtap="handleUserLogin">确认登录</button>
+        <button>取消</button>
+    </view>
+</view>

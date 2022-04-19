@@ -38,7 +38,8 @@
 
 <!-- discover -->
 <view class="discover">
-  <view class="title">发现</view>
+  <!-- <view class="title">发现</view> -->
+  <image mode="widthFix" style="width: 100%;" src="cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/9788e6ec530a20c502bd26c7e83dc33c.gif"></image>
   <image mode="aspectFill" style="width: 100%;" src="/images/d021eca5e55d4710caebaa1624a81bee@2x.png"></image>
-  <button type="primary" class="trybtn">去试试</button>
+  <button type="primary" class="trybtn" bindtap="handleTryBtnClick">去试试</button>
 </view>

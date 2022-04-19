@@ -12,5 +12,10 @@ Page({
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 2000)
+  },
+  handleTryBtnClick(e) {
+    wx.switchTab({
+      url: '/pages/book/index',
+    })
   }
 })

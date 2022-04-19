@@ -20,7 +20,7 @@
 }
 
 .notice {
-  padding: 15px;
+  margin: 15px;
 }
 
 .notice swiper {
@@ -34,6 +34,50 @@
   align-items: center;
   justify-content: space-between;
   line-height: 40px;
+  height: 40px;
   padding: 0 15px;
   text-align: center;
+}
+
+.notice-item .icon {
+  width: 20px;
+  height: 20px;
+  /* flex-shrink: 0; */
+}
+
+.notice-item .type {
+  /* flex-shrink: 0; */
+  /* color: #; */
+  padding: 0 3px;
+  font-weight: bold;
+}
+
+.notice-item .content {
+  flex: 1;
+  color: #777777;
+}
+
+.notice-item .arrow {
+  width: 10px;
+  height: 18px;
+}
+
+.discover {
+  padding: 0 15px;
+  position: relative;
+}
+
+.discover .title {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.discover .trybtn {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  margin-left: -90px;
+  opacity: .9;
+  /* background-color: rgb; */
 }

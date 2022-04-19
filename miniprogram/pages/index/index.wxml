@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<!-- banner -->
 <view class="banner">
   <swiper 
     class="swiper" 
@@ -15,6 +16,7 @@
   </swiper>
 </view>
 
+<!-- notice -->
 <view class="notice">
   <swiper
     vertical
@@ -24,11 +26,19 @@
     <block wx:for="notices" wx:for-item="notice" wx:key="*this">
       <swiper-item>
         <view class="notice-item">
-          <text>{{ notice }}</text>
-          <view style="flex-grow: 1; overflow: hidden; height: 40px;">阿萨德很快就按时带回家阿克苏和的控件按时活动空间啊哈是框架</view>
-          <image style="width: 10px;height: 18px;" src="/images/arrow.svg"></image>
+          <image src="/images/notice.png" class="icon"/>
+          <text class="type">重要通知</text>
+          <text class="content ellipsis">阿萨德很123123123快就按时带回家阿克苏和的控件按时活动空间啊哈是框架</text>
+          <image class="arrow" src="/images/arrow.svg"></image>
         </view>
       </swiper-item>
     </block>
   </swiper>
+</view>
+
+<!-- discover -->
+<view class="discover">
+  <view class="title">发现</view>
+  <image mode="aspectFill" style="width: 100%;" src="/images/d021eca5e55d4710caebaa1624a81bee@2x.png"></image>
+  <button type="primary" class="trybtn">去试试</button>
 </view>

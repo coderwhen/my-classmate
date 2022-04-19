@@ -3,8 +3,19 @@
 page {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background: #f8f8f8;
+  color: #222222;
 }
 
-view,text,textarea,button {
+view,
+text,
+textarea,
+button {
   box-sizing: border-box;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
 }

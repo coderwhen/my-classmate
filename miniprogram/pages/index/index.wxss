@@ -10,6 +10,7 @@
 }
 
 .swiper .box {
+  width: 100%;
   color: #ffffff;
   text-align: center;
   height: 260rpx;

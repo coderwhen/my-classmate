@@ -9,7 +9,7 @@
   >
     <block wx:for="{{ banners }}" wx:for-item="banner" wx:key="*this">
       <swiper-item>
-        <view class="box">轮播图{{ banner }}</view>
+        <image class="box" mode="aspectFill" src="/images/banner/b1.jpg"></image>
       </swiper-item>
     </block>
   </swiper>
@@ -26,7 +26,7 @@
         <view class="notice-item">
           <text>{{ notice }}</text>
           <view style="flex-grow: 1; overflow: hidden; height: 40px;">阿萨德很快就按时带回家阿克苏和的控件按时活动空间啊哈是框架</view>
-          <view>{{ index }}</view>
+          <image style="width: 10px;height: 18px;" src="/images/arrow.svg"></image>
         </view>
       </swiper-item>
     </block>

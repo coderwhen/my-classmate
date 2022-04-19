@@ -1,5 +1,10 @@
 /**app.wxss**/
 
 page {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background: #f8f8f8;
+}
+
+view,text,textarea,button {
+  box-sizing: border-box;
 }

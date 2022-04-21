@@ -1,7 +1,15 @@
 <!--pages/message/index.wxml-->
-<text>pages/message/index.wxml</text>
-
-<view class="bottom">
-    <text>123ashdakjshkj</text>
-    <button type="primary" size="mini">一键登录</button>
-</view>
+<yc-tab 
+    tabs="{{ tabs }}" 
+    currentIndex="{{ tabActiveIndex }}"
+    bindchange="handleTabChange"
+/>
+<swiper class="swiper" duration="{{ 300 }}" current="{{ tabActiveIndex }}" bindchange="handleSwiperChange">
+    <swiper-item>
+        <image class="image" mode="aspectFit" src="/images/message.png"/>
+    </swiper-item>
+    <swiper-item>
+        <image class="image" mode="aspectFit" src="/images/message.png"/>
+    </swiper-item>
+</swiper>
+<yc-login-bar/>

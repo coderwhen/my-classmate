@@ -16,11 +16,7 @@
     </view>
 </view>
 <view class="my-info">
-    <view class="item">
-        <text class="count">1</text>
-        <text>我的同学录</text>
-    </view>
-    <view class="item">
+    <view class="item" bindtap="handleMyBookClick">
         <text class="count">1</text>
         <text>我的同学录</text>
     </view>

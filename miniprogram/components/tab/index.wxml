@@ -1,0 +1,15 @@
+<!--components/tab/index.wxml-->
+
+<view class="tab">
+    <block wx:for="{{ tabs }}" wx:for-item="tab" wx:key="index">
+        <view 
+            class="tab-item {{ index === currentIndex ? 'active':''}}" 
+            data-index="{{ index }}" 
+            bindtap="handleTabItemClick"
+        >{{ tab }}</view>
+    </block>
+    <view 
+        class="line" 
+        style="width: {{ 750 / tabs.length }}rpx; left: {{ (750 / tabs.length) * currentIndex }}rpx;"
+    ></view>
+</view>

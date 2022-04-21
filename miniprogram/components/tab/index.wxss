@@ -1,0 +1,32 @@
+/* components/tab/index.wxss */
+.tab {
+    position: relative;
+    height: 120rpx;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+
+.tab .tab-item {
+    font-size: 40rpx;
+    text-align: center;
+    line-height: 120rpx;
+    flex: 1;
+}
+
+.tab .tab-item.active {
+    font-weight: 700;
+    color: #0FCEED;
+}
+
+.tab .line {
+    position: absolute;
+    height: 4rpx;
+    background-color: #0FCEED;
+    width: 375rpx;
+    left: 0;
+    bottom: 0;
+    transition: all .3s;
+}

@@ -1,66 +1,31 @@
 // pages/book/index.js
+const app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        tabs: ['我的同学录','我参加的'],
+        tabActiveIndex: 0
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-
+    onShow(e) {
+        if(app.globalData._tabPage.book != this.data.tabActiveIndex) {
+            this.setData({
+                tabActiveIndex: app.globalData._tabPage.book
+            })
+        }
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
+    handleTabChange(e) {
+        const index = e.detail.index
+        this.setData({
+            tabActiveIndex: index
+        })
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    handleSwiperChange(e) {
+        const index = e.detail.current
+        this.setData({
+            tabActiveIndex: index
+        })
     }
 })

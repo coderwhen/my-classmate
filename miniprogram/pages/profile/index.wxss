@@ -4,10 +4,11 @@
     display: flex;
     padding: 15px;
     align-items: center;
+    background-color: #ffffff;
 }
 
 .userinfo.hover {
-    background-color: #ffffff;
+    background-color: #e7e7e7;
 }
 
 .userinfo .avatar {
@@ -59,13 +60,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    line-height: 40px;
+    line-height: 120rpx;
     padding: 0 15px;
     background-color: #ffffff;
 }
 
 .menu-item.active {
-    background-color: #f8f8f8;
+    background-color: #e7e7e7;
 }
 
 .menu-item .icon {

@@ -1,2 +1,16 @@
 <!--pages/book/index.wxml-->
-<text>pages/book/index.wxml</text>
+<yc-tab 
+    tabs="{{ tabs }}" 
+    currentIndex="{{ tabActiveIndex }}"
+    bindchange="handleTabChange"
+/>
+<swiper class="swiper" duration="{{ 300 }}" current="{{ tabActiveIndex }}" bindchange="handleSwiperChange">
+    <swiper-item>
+        <image class="image" mode="aspectFit" src="/images/message.png"/>
+    </swiper-item>
+    <swiper-item>
+        <loading>加载中</loading>
+        <image class="image" mode="aspectFit" src="/images/message.png"/>
+    </swiper-item>
+</swiper>
+<yc-login-bar/>

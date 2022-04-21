@@ -1,0 +1,5 @@
+<!--components/login-bar/index.wxml-->
+<view class="login-bar">
+    <text>登录体验更多功能</text>
+    <button type="primary" size="mini">去登陆</button>
+</view>

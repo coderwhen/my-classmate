@@ -15,5 +15,11 @@ Page({
       wx.navigateTo({
         url: '/pages/login/index',
       })
+  },
+  handleMyBookClick(e) {
+    app.globalData._tabPage.book = 0
+    wx.switchTab({
+      url: '/pages/book/index',
+    })
   }
 })

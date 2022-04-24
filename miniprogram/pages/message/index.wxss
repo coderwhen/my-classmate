@@ -13,6 +13,10 @@
 
 .swiper {
     position: relative;
+    height: calc(100vh - 100rpx - 120rpx);
+}
+
+.swiper.login {
     height: calc(100vh - 120rpx);
 }
 

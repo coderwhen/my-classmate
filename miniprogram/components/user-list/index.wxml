@@ -1,0 +1,18 @@
+<!--components/user-list/index.wxml-->
+<scroll-view class="user-list" scroll-y>
+    <block wx:for="{{ 20 }}" wx:key="*this">
+        <view class="item">
+            <view class="avatar">
+                <image src="/images/132.jpg"></image>
+            </view>
+            <view class="content">
+                <view class="t1">懒羊羊睡醒了</view>
+                <view class="t2">Ta给你留言了快去看看吧！</view>
+            </view>
+            <view class="time">
+                <text>4月22日</text>
+            </view>
+        </view>
+    </block>
+</scroll-view>
+

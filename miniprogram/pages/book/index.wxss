@@ -1,15 +1,44 @@
 /* pages/book/index.wxss */
 .swiper {
     position: relative;
+    height: calc(100vh - 100rpx - 120rpx);
+}
+
+.swiper.login {
     height: calc(100vh - 120rpx);
 }
 
-.swiper .image {
-    height: 240rpx;
-    width: 240rpx;
+.swiper .create-btn {
+    position: fixed;
+    right: 50rpx;
+    bottom: 50rpx;
+    width: 100rpx;
+    height: 100rpx;
+    background-color: #0FCEED;
+    border-radius: 50%;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, .4);
+}
+
+.swiper .create-btn:before {
+    content: '';
     position: absolute;
-    top: 50%;
+    height: 60rpx;
+    width: 15rpx;
     left: 50%;
+    top: 50%;
+    border-radius: 7.5rpx;
+    background-color: #ffffff;
     transform: translate(-50%,-50%);
-    /* margin: auto; */
+}
+
+.swiper .create-btn:after {
+    content: '';
+    position: absolute;
+    height: 60rpx;
+    width: 15rpx;
+    left: 50%;
+    top: 50%;
+    border-radius: 7.5rpx;
+    background-color: #ffffff;
+    transform: translate(-50%,-50%) rotate(90deg);
 }

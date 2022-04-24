@@ -4,7 +4,10 @@
         "pages/profile/index",
         "pages/message/index",
         "pages/book/index",
-        "pages/login/index"
+        "pages/login/index",
+        "pages/choose-music/index",
+        "pages/invitation/index",
+        "pages/book-save/index"
     ],
     "window": {
         "backgroundColor": "#ffffff",
@@ -34,6 +37,7 @@
             }
         ]
     },
+    "lazyCodeLoading": "requiredComponents",
     "sitemapLocation": "sitemap.json",
     "style": "v2"
 }

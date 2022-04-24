@@ -4,13 +4,35 @@
     currentIndex="{{ tabActiveIndex }}"
     bindchange="handleTabChange"
 />
-<swiper class="swiper" duration="{{ 300 }}" current="{{ tabActiveIndex }}" bindchange="handleSwiperChange">
+<swiper class="swiper {{ isLogin ? 'login' : '' }}" duration="{{ 300 }}" current="{{ tabActiveIndex }}" bindchange="handleSwiperChange">
     <swiper-item>
-        <image class="image" mode="aspectFit" src="/images/message.png"/>
+        <block wx:if="{{ !isLogin }}">
+            <yc-center-image />
+        </block>
+        <block wx:elif="{{ alumniBooks.length === 0 }}">
+            <yc-center-image />
+            <view class="create-btn" bindtap="handleCreateBook"></view>
+        </block>
+        <block wx:else>
+            <scroll-view style="height: 100%;" scroll-y>
+                <yc-alumni wx:for="{{ 5 }}" wx:key="*this"/>
+            </scroll-view>
+            <view class="create-btn" bindtap="handleCreateBook"></view>
+        </block>
     </swiper-item>
     <swiper-item>
-        <loading>加载中</loading>
-        <image class="image" mode="aspectFit" src="/images/message.png"/>
+        <block wx:if="{{ !isLogin }}">
+            <yc-center-image />
+        </block>
+        <block wx:elif="{{ joins.length === 0 }}">
+            <image class="image" mode="aspectFit" src="/images/message.png"/>
+            asd
+        </block>
+        <block wx:else>
+            <yc-user-list/>
+        </block>
     </swiper-item>
 </swiper>
-<yc-login-bar/>
+<block wx:if="{{ !isLogin }}">
+    <yc-login-bar/>
+</block>

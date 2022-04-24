@@ -1,0 +1,28 @@
+<!--pages/book-save/index.wxml-->
+<scroll-view
+    class="book-save"
+    scroll-y
+>
+    <view class="cover">
+        <view class="cover-box">
+            <text>相机图标</text>
+            <text>添加封面</text>
+        </view>
+        <text>（如果不添加，系统会自动生成封面）</text>
+    </view>
+    <view class="title-wrap">
+        <view class="title">点击输入同学录标题</view>
+        <input />
+    </view>
+    <view class="description-wrap">
+        <view class="title">点击输入同学录备注</view>
+        <textarea></textarea>
+    </view>
+    <view class="add-music">
+        <view class="btn" hover-class="hover" bindtap="handleChooseMusic">
+            <text>添加音乐</text>
+            <text>图标</text>
+        </view>
+    </view>
+    <button type="primary">完成</button>
+</scroll-view>

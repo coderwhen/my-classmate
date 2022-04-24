@@ -4,12 +4,22 @@
     currentIndex="{{ tabActiveIndex }}"
     bindchange="handleTabChange"
 />
-<swiper class="swiper" duration="{{ 300 }}" current="{{ tabActiveIndex }}" bindchange="handleSwiperChange">
+<swiper class="swiper {{ isLogin ? 'login':'' }}" duration="{{ 300 }}" current="{{ tabActiveIndex }}" bindchange="handleSwiperChange">
     <swiper-item>
-        <image class="image" mode="aspectFit" src="/images/message.png"/>
+        <block wx:if="{{ !isLogin }}">
+            <yc-center-image />
+        </block>
+        <block wx:else>
+            <yc-user-list />
+        </block>
     </swiper-item>
     <swiper-item>
-        <image class="image" mode="aspectFit" src="/images/message.png"/>
+        <block wx:if="{{ !isLogin }}">
+            <yc-center-image />
+        </block>
+        <block wx:else>
+            <yc-user-list />
+        </block>
     </swiper-item>
 </swiper>
-<yc-login-bar/>
+<yc-login-bar wx:if="{{ !isLogin }}"/>

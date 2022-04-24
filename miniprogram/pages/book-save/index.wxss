@@ -1,0 +1,90 @@
+/* pages/book-save/index.wxss */
+page {
+    background-color: #ffffff;
+}
+
+.book-save {
+    padding: 15px;
+}
+
+.cover {
+    display: flex;
+    align-items: flex-end;
+}
+
+.cover .cover-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    padding: 4rpx;
+    width: 240rpx;
+    height: 240rpx;
+    background: rgba(235, 235, 235, 0.39);
+    border: 2rpx dashed#8C8C8C;
+    border-radius: 10rpx;
+}
+
+.cover .cover-box text {
+    height: 34rpx;
+    font-size: 26rpx;
+    line-height: 34rpx;
+    color: #000000;
+    opacity: 1;
+}
+
+.cover text {
+    height: 34rpx;
+    font-size: 24rpx;
+    line-height: 34rpx;
+    color: #000000;
+}
+
+.title-wrap {
+    margin-top: 15px;
+}
+
+.title-wrap .title {
+    height: 74rpx;
+    font-size: 52rpx;
+    line-height: 74rpx;
+    color: #000000;
+}
+
+.title-wrap input {
+    padding: 15px;
+    background-color:  rgba(235, 235, 235, 0.39);
+    border-radius: 10rpx;
+}
+
+.description-wrap {
+    margin-top: 15px;
+}
+
+.description-wrap .title {
+    height: 56rpx;
+    font-size: 40rpx;
+    line-height: 56rpx;
+    color: #000000;
+}
+
+.description-wrap textarea {
+    padding: 15px;
+    width: 100%;
+    border-radius: 10rpx;
+    background-color: rgba(235, 235, 235, 0.39);
+}
+
+.add-music {}
+
+.add-music .btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 120rpx;
+    height: 120rpx;
+}
+
+.add-music .btn.hover {
+    background-color: salmon;
+}

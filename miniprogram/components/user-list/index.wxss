@@ -1,0 +1,35 @@
+/* components/user-list/index.wxss */
+.user-list {
+    height: 100%;
+}
+
+.item {
+    padding: 10px 15px;
+    height: 120rpx;
+    display: flex;
+    background-color: #ffffff;
+}
+
+.avatar image {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.content {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.t1 {
+    font-weight: 400;
+    color: #222222;
+    line-height: 44rpx;
+}
+
+.t2 {
+    line-height: 34rpx;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #777777;
+    opacity: 1;
+}

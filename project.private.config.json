@@ -58,6 +58,13 @@
                     "name": "pages/login",
                     "pathName": "pages/login/index",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "pages/choose-music/index",
+                    "pathName": "pages/choose-music/index",
+                    "query": "",
                     "scene": null,
                     "launchMode": "default"
                 }

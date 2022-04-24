@@ -1,0 +1,8 @@
+<!--components/center-image/index.wxml-->
+<view class="center-image">
+    <image class="image" mode="aspectFit" src="/images/message.png" />
+    <view>
+        <view class="t1">未登录</view>
+        <view class="t2">点击下方去登录吧</view>
+    </view>
+</view>

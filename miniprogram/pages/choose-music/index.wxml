@@ -1,0 +1,66 @@
+<!--pages/choose-music/index.wxml-->
+<view class="search-bar">
+    <view class="search">
+        <input type="text" value="{{ keywords }}" bindinput="keywordInput" bindconfirm="handleConfirm" placeholder="请输入搜索内容" />
+        <image src="/images/search.png" class="icon"></image>
+    </view>
+</view>
+<block wx:if="{{ keywords.length === 0 }}">
+    <view class="top-search">
+        <view class="t1">
+            最近搜索
+        </view>
+        <view class="list">
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+        </view>
+    </view>
+    <view class="top-search">
+        <view class="t1">
+            热门搜索
+        </view>
+        <view class="list">
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+            <view class="item">有何不可</view>
+        </view>
+    </view>
+</block>
+<view wx:elif="{{ keywords.length > 0 }}" class="search-tips">
+    <block wx:for="{{ suggests }}" wx:for-item="suggest" wx:key="index">
+        <view class="item" data-tip="{{ suggest }}" bindtap="handleTipsClick">
+            <image src="/images/search.png" style="width: 20px; height: 20px;"></image>
+            <text style="flex: 1; margin: 0 15px;">{{ suggest.keyword }}</text>
+            <image src="/images/arrow.png" style="width: 20px; height: 20px;"></image>
+        </view>
+    </block>
+</view>
+<view class="search-loading" style="text-align: center;">
+    加载中...
+</view>
+<view class="search-result">
+    <block wx:for="{{ searchSongs }}" wx:key="id">
+        <view class="item">
+            <view class="l">
+                <view class="t1">{{ item.name }}</view>
+                <view class="t2">海阔天空 - 海阔天空</view>
+            </view>
+            <view class="icons">
+                <image src="/images/arrow.png" style="width: 20px; height: 20px;"></image>
+                <image bindtap="handleMusicClick" data-id="{{ item.id }}" src="/images/arrow.png" style="width: 20px; height: 20px;"></image>
+            </view>
+        </view>
+    </block>
+</view>
+<audio bindended="handleMusicEnd" id="audio" src="{{ musicList[currentMusic].url }}" controls></audio>

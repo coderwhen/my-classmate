@@ -10,6 +10,10 @@
     background-color: #ffffff;
 }
 
+.item.hover {
+  /* background-color: aquamarine; */
+}
+
 .avatar image {
     width: 80rpx;
     height: 80rpx;

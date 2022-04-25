@@ -54,7 +54,7 @@
         <view class="item">
             <view class="l">
                 <view class="t1">{{ item.name }}</view>
-                <view class="t2">海阔天空 - 海阔天空</view>
+                <view class="t2">{{ item.artists[0].name }} - {{ item.album.name }}</view>
             </view>
             <view class="icons">
                 <image src="/images/arrow.png" style="width: 20px; height: 20px;"></image>

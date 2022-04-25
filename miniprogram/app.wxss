@@ -1,7 +1,7 @@
 /**app.wxss**/
 
 page {
-  font-size: 16px;
+  font-size: 32rpx;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background: #f8f8f8;
   color: #222222;

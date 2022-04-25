@@ -1,1 +1,105 @@
 /* pages/invitation/index.wxss */
+.invitation {
+  padding: 15px;
+}
+
+.cover {
+  position: relative;
+  padding: 36rpx;
+  height: 724rpx;
+  /* background-color: bisque; */
+  background-image: url(cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/yq.png);
+  /* background: url(cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/yq.png) bisque; */
+}
+
+.cover .bg {
+  position: absolute;
+  /* inset: 0; */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.cover .userinfo {}
+
+.cover .userinfo .pic {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
+}
+
+.cover .userinfo view {
+  height: 44rpx;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #FFFFFF;
+}
+
+.cover .title {
+  display: block;
+  height: 152px;
+  font-size: 54rpx;
+  line-height: 76rpx;
+  color: #FFFFFF;
+  margin-top: 228rpx;
+}
+
+.ercode {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  height: 160rpx;
+  padding: 0 15px;
+}
+
+.ercode text {
+  height: 44rpx;
+  font-size: 40rpx;
+  font-weight: 500;
+  line-height: 44rpx;
+  color: #1F1F1F;
+}
+
+.ercode image {
+  height: 140rpx;
+  width: 140rpx;
+}
+
+.action {
+  margin-top: 15px;
+  display: flex;
+  margin-left: -20px;
+}
+
+.action .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  margin-left: 20px;
+  height: 102rpx;
+}
+
+.action .btn .icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 5px;
+}
+
+.action .btn text {
+  height: 44rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+  line-height: 44rpx;
+  color: #000000;
+}
+
+.save-btn {
+  margin-top: 15px;
+  width: 100% !important;
+}

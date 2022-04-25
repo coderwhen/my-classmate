@@ -1,7 +1,7 @@
 <!--components/user-list/index.wxml-->
 <scroll-view class="user-list" scroll-y>
     <block wx:for="{{ 20 }}" wx:key="*this">
-        <view class="item">
+        <view class="item" hover-class="hover">
             <view class="avatar">
                 <image src="/images/132.jpg"></image>
             </view>

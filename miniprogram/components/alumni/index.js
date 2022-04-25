@@ -19,6 +19,10 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+      handleShareClick(e) {
+        wx.navigateTo({
+          url: '/pages/invitation/index',
+        })
+      }
     }
 })

@@ -3,6 +3,7 @@
     padding: 15px;
     background-color: #ffffff;
     display: flex;
+    margin-bottom: 10px;
 }
 
 .cover {

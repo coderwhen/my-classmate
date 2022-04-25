@@ -13,7 +13,7 @@
             <view class="btns">
                 <image style="width: 20px; height: 20px; margin-left: 5px;" src="/images/fx.png"></image>
                 <image style="width: 20px; height: 20px; margin-left: 5px;" src="/images/fx.png"></image>
-                <image style="width: 20px; height: 20px; margin-left: 5px;" src="/images/fx.png"></image>
+                <image catchtap="handleShareClick" style="width: 20px; height: 20px; margin-left: 5px;" src="/images/fx.png"></image>
             </view>
         </view>
     </view>

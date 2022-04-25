@@ -23,7 +23,7 @@
 
 .tab .line {
     position: absolute;
-    height: 4rpx;
+    height: 6rpx;
     background-color: #0FCEED;
     width: 375rpx;
     left: 0;

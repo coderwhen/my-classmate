@@ -5,6 +5,7 @@ const musicResult = require('./music-result')
 const musicUrl = require('./music-url')
 // 云函数入口函数
 exports.main = async (event, context) => {
+  console.log(event)
     switch (event.type) {
         case "login":
             return login.main(event, context)

@@ -18,6 +18,7 @@ Page({
             }).then(resalt => {
                 // console.log(res)
                 app.globalData.userInfo = res.userInfo
+                app.globalData.isLogin = true
                 wx.navigateBack()
                 wx.setStorageSync('_userInfo', res.userInfo)
                 // if(resalt)

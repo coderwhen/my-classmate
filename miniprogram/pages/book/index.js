@@ -5,8 +5,8 @@ Page({
         // tabs数据
         tabs: ['我的同学录','我参加的'],
         tabActiveIndex: 0,
-        alumniBooks: [1,2],
-        joins: [1],
+        alumniBooks: [],
+        joins: [],
         isLogin: false
     },
     onShow(e) {

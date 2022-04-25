@@ -7,10 +7,13 @@
 <swiper class="swiper {{ isLogin ? 'login' : '' }}" duration="{{ 300 }}" current="{{ tabActiveIndex }}" bindchange="handleSwiperChange">
     <swiper-item>
         <block wx:if="{{ !isLogin }}">
-            <yc-center-image />
+            <yc-center-image 
+              title="还没有登录"
+              description="点击下方按钮登录吧"
+            />
         </block>
         <block wx:elif="{{ alumniBooks.length === 0 }}">
-            <yc-center-image />
+            <yc-center-image title="还没有同学录" description="点击下方按钮创建一个吧"/>
             <view class="create-btn" bindtap="handleCreateBook"></view>
         </block>
         <block wx:else>
@@ -22,11 +25,16 @@
     </swiper-item>
     <swiper-item>
         <block wx:if="{{ !isLogin }}">
-            <yc-center-image />
+          <yc-center-image 
+            title="还没有登录"
+            description="点击下方按钮登录吧"
+          />
         </block>
         <block wx:elif="{{ joins.length === 0 }}">
-            <image class="image" mode="aspectFit" src="/images/message.png"/>
-            asd
+          <yc-center-image 
+            title="还没有消息"
+            description="快去分享一下吧"
+          />
         </block>
         <block wx:else>
             <yc-user-list/>

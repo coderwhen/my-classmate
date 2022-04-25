@@ -5,7 +5,7 @@
         <image src="/images/search.png" class="icon"></image>
     </view>
 </view>
-<block wx:if="{{ keywords.length === 0 }}">
+<block wx:if="{{  current === 0 && keywords.length === 0 }}">
     <view class="top-search">
         <view class="t1">
             最近搜索
@@ -37,7 +37,7 @@
         </view>
     </view>
 </block>
-<view wx:elif="{{ keywords.length > 0 }}" class="search-tips">
+<view wx:elif="{{ current === 1 && keywords.length > 0 }}" class="search-tips">
     <block wx:for="{{ suggests }}" wx:for-item="suggest" wx:key="index">
         <view class="item" data-tip="{{ suggest }}" bindtap="handleTipsClick">
             <image src="/images/search.png" style="width: 20px; height: 20px;"></image>
@@ -46,21 +46,24 @@
         </view>
     </block>
 </view>
-<view class="search-loading" style="text-align: center;">
+<block wx:else>
+  <view wx:if="{{ searchLoading }}" class="search-loading" style="text-align: center;">
     加载中...
-</view>
-<view class="search-result">
-    <block wx:for="{{ searchSongs }}" wx:key="id">
-        <view class="item">
-            <view class="l">
-                <view class="t1">{{ item.name }}</view>
-                <view class="t2">{{ item.artists[0].name }} - {{ item.album.name }}</view>
-            </view>
-            <view class="icons">
-                <image src="/images/arrow.png" style="width: 20px; height: 20px;"></image>
-                <image bindtap="handleMusicClick" data-id="{{ item.id }}" src="/images/arrow.png" style="width: 20px; height: 20px;"></image>
-            </view>
-        </view>
-    </block>
-</view>
-<audio bindended="handleMusicEnd" id="audio" src="{{ musicList[currentMusic].url }}" controls></audio>
+  </view>
+  <view wx:else class="search-result">
+      <block wx:for="{{ searchSongs }}" wx:key="id">
+          <view class="item">
+              <view class="l">
+                  <view class="t1">{{ item.name }}</view>
+                  <view class="t2">{{ item.artists[0].name }} - {{ item.album.name }}</view>
+              </view>
+              <view class="icons">
+                  <image src="/images/arrow.png" style="width: 20px; height: 20px;"></image>
+                  <image bindtap="handleMusicClick" data-id="{{ item.id }}" src="/images/arrow.png" style="width: 20px; height: 20px;"></image>
+              </view>
+          </view>
+      </block>
+  </view>
+  <button type="primary">完成</button>
+</block>
+<audio hidden="{{ true }}" bindended="handleMusicEnd" id="audio" src="{{ musicList[currentMusic].url }}" controls></audio>

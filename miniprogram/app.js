@@ -2,7 +2,7 @@
 App({
   globalData: {
     isLogin: false,
-    userInfo: {},
+    userInfo: null,
     _tabPage: {
       book: 0,
       message: 0

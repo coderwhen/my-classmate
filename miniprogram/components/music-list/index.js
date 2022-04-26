@@ -11,6 +11,12 @@ Component({
     }
   },
   methods: {
-    
+    handleIconClick(e) {
+      console.log(e)
+      const {music, event} = e.target.dataset
+      if(event && event.length > 0) {
+        this.triggerEvent(event, music, {})
+      }
+    }
   }
 })

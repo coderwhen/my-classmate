@@ -75,7 +75,7 @@ Page({
     })
   },
   handleJoin(e) {
-    const music = e.currentTarget.dataset.music
+    const music = e.detail
     const musicList = this.data.musicList
     const musicItem = musicList.find(item => item.id === music.id)
     if(musicItem) {
@@ -89,7 +89,8 @@ Page({
     })
   },
   handleMusicClick(e) {
-    const id = e.currentTarget.dataset.id
+    console.log(e)
+    const id = e.detail.id
     getMusicUrl({
       id
     }).then(res => {
@@ -101,6 +102,16 @@ Page({
       })
     }).catch(err => {
       console.log(err)
+    })
+  },
+  handleDeleteMusic(e) {
+    const music = e.detail
+    const musicList = this.data.musicList
+    const deleteIndex = musicList.findIndex(item => music.id === item.id)
+    if(deleteIndex === -1) return
+    musicList.splice(deleteIndex, 1)
+    this.setData({
+      musicList
     })
   },
   handleMusicEnd(e) {

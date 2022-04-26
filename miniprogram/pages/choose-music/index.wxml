@@ -57,19 +57,16 @@
   <yc-music-list 
     wx:else 
     music-list="{{ searchSongs }}"
+    icon-list="{{ [{icon:'/images/fx.png',event: 'play'}, {icon: '/images/fx.png', event: 'add'}] }}"
+    bindplay="handleMusicClick"
+    bindadd="handleJoin"
   />
   <view class="fixed">
-    <view class="music-list">
-      <block wx:for="{{ musicList }}">
-        <view class="item">
-          <text>{{ item.name }}</text>
-          <view>
-            <image src="/images/jia.png" data-music="{{ item }}" bindtap="handleJoin"></image>
-            <image class="play" bindtap="handleMusicClick" data-id="{{ item.id }}" src="/images/play.png"></image>
-          </view>
-        </view>
-      </block>
-    </view>
+    <yc-music-list 
+      music-list="{{ musicList }}"
+      icon-list="{{[{icon: '/images/fx.png', event: 'delete'}]}}"
+      binddelete="handleDeleteMusic"
+    />
     <button bindtap="handleChooseSuccess" type="primary">完成</button>
   </view>
 </block>

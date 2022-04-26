@@ -9,8 +9,14 @@
         </view>
       </view>
       <view class="icons">
-        <image src="/images/jia.png"></image>
-        <image src="/images/play.png"></image>
+        <block wx:for="{{ iconList }}" wx:for-item="icon" wx:for-index="idx" wx:key="idx">
+          <image 
+            src="{{ icon.icon }}" 
+            data-event="{{ icon.event }}" 
+            data-music="{{ item }}" 
+            bindtap="handleIconClick"
+          />
+        </block>
       </view>
     </view>
   </block>

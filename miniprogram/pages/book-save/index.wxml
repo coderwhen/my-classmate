@@ -17,11 +17,11 @@
     </view>
     <view class="title-wrap">
         <view class="title">点击输入同学录标题</view>
-        <input />
+        <input maxlength="10" bindinput="handleTitleInput" placeholder="同学录标题"/>
     </view>
     <view class="description-wrap">
         <view class="title">点击输入同学录备注</view>
-        <textarea maxlength="{{ 50 }}" bindinput="handleDescriptionInput"></textarea>
+        <textarea maxlength="{{ 50 }}" placeholder="同学录备注" bindinput="handleDescriptionInput"></textarea>
         <text>{{ description.length }}/50</text>
     </view>
     <view class="add-music">
@@ -29,6 +29,7 @@
             <text>添加音乐</text>
             <text>图标</text>
         </view>
+        <yc-music-list music-list="{{ musicList }}" icon-list="{{ [{icon: '/images/fx.png', event: 'play'}] }}"/>
     </view>
-    <button type="primary">完成</button>
+    <button bindtap="handleSuccess" type="primary">完成</button>
 </scroll-view>

@@ -9,83 +9,114 @@ const {
 } = require('../../api/index')
 
 Page({
-    data: {
-        keywords: '',
-        suggests: [],
-        searchSongs: [],
-        searchLoading: false,
-        musicList: [],
-        currentMusic: 0,
-        current: 0
-    },
-    onReady() {
-        this.musicAud = wx.createAudioContext('audio')
-    },
-    _getMusicSearchSuggest: throttle(function (keywords){
-      getMusicSearchSuggest({
-        keywords
-      }).then(res => {
-        console.log(res)
-        this.setData({
-            suggests: res.result.body.result.allMatch
-        })
-      }).catch(err => {
-          console.log(err)
+  data: {
+    // 搜索关键词
+    keywords: '',
+    // 联想结果
+    suggests: [],
+    // 搜索结果
+    searchSongs: [],
+    // 是否加载中
+    searchLoading: false,
+    // 音乐列表
+    musicList: [],
+    // 播放列表
+    playList: [],
+    // 当前播放
+    currentMusic: 0,
+    current: 0
+  },
+  onReady() {
+    this.musicAud = wx.createAudioContext('audio')
+  },
+  _getMusicSearchSuggest: throttle(function (keywords) {
+    getMusicSearchSuggest({
+      keywords
+    }).then(res => {
+      console.log(res)
+      this.setData({
+        suggests: res.result.body.result.allMatch
       })
-    }),
-    keywordInput(e) {
-        const keywords = e.detail.value
-        this.setData({
-            keywords,
-            current: keywords.length > 0 ? 1 : 0
-        })
-        this._getMusicSearchSuggest(e.detail.value)
-    },
-    handleConfirm() {
-        
-    },
-    handleTipsClick(e) {
-        const keywords = e.currentTarget.dataset.tip.keyword
-        this.setData({
-          current: 2,
-          searchLoading: true,
-          keywords
-        })
-        getMusicSearch({
-          keywords
-        }).then(res => {
-          console.log(res)
-          this.setData({
-              searchSongs: res.result.body.result.songs,
-          })
-        }).finally(() => {
-          this.setData({
-            searchLoading: false
-          })
-        }).catch(err => {
-            console.log(err)
-        })
-    },
-    handleMusicClick(e) {
-        const id = e.currentTarget.dataset.id
-        getMusicUrl({
-          id
-        }).then(res => {
-          console.log(res)
-          this.setData({
-            musicList: this.data.musicList.concat(res.result.body.data)
-          }, () => {
-              this.musicAud.play()
-          })
-        }).catch(err => {
-          console.log(err)
-        })
-    },
-    handleMusicEnd(e) {
-        this.setData({
-            currentMusic: (this.data.currentMusic + 1) % this.data.musicList.length
-        }, () => {
-            this.musicAud.play()
-        })
+    }).catch(err => {
+      console.log(err)
+    })
+  }),
+  keywordInput(e) {
+    const keywords = e.detail.value
+    this.setData({
+      keywords,
+      current: keywords.length > 0 ? 1 : 0
+    })
+    keywords.length > 0 && this._getMusicSearchSuggest(e.detail.value)
+  },
+  handleConfirm() {
+
+  },
+  handleTipsClick(e) {
+    const keywords = e.currentTarget.dataset.tip.keyword
+    this.setData({
+      current: 2,
+      searchLoading: true,
+      keywords
+    })
+    getMusicSearch({
+      keywords
+    }).then(res => {
+      console.log(res)
+      this.setData({
+        searchSongs: res.result.body.result.songs,
+      })
+    }).finally(() => {
+      this.setData({
+        searchLoading: false
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+  },
+  handleJoin(e) {
+    const music = e.currentTarget.dataset.music
+    const musicList = this.data.musicList
+    const musicItem = musicList.find(item => item.id === music.id)
+    if(musicItem) {
+      wx.showToast({
+        title: '已存在该歌曲！',
+      })
+      return
     }
+    this.setData({
+      musicList: musicList.concat(music)
+    })
+  },
+  handleMusicClick(e) {
+    const id = e.currentTarget.dataset.id
+    getMusicUrl({
+      id
+    }).then(res => {
+      console.log(res)
+      this.setData({
+        playList: this.data.playList.concat(res.result.body.data)
+      }, () => {
+        this.musicAud.play()
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+  },
+  handleMusicEnd(e) {
+    this.setData({
+      currentMusic: (this.data.currentMusic + 1) % this.data.musicList.length
+    }, () => {
+      this.musicAud.play()
+    })
+  },
+  handleChooseSuccess(e) {
+    const pages = getCurrentPages()
+    const prvePage = pages[pages.length - 2]
+    prvePage.setData({
+      musicList: this.data.musicList
+    }, () => {
+      wx.navigateBack()
+    })
+  }
 })

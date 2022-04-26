@@ -3,6 +3,7 @@ Page({
     data: {
       coverImageUrl: '',
       title: '',
+      description: ''
     },
     handleChooseMusic(e) {
         wx.navigateTo({
@@ -20,6 +21,11 @@ Page({
             coverImageUrl: res.tempFilePaths[0]
           })
         },
+      })
+    },
+    handleDescriptionInput(e) {
+      this.setData({
+        description: e.detail.value
       })
     }
 })

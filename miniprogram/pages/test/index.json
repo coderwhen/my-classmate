@@ -1,6 +1,5 @@
 {
   "usingComponents": {
     "yc-music-list": "/components/music-list/index"
-  },
-  "navigationBarTitleText": "选取音乐"
+  }
 }

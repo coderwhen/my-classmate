@@ -6,7 +6,7 @@
     <view class="cover">
         <view class="cover-box" bindtap="handleChooseImage">
           <block wx:if="{{ coverImageUrl.length === 0 }}">
-            <text>相机图标</text>
+            <image style="width: 100rpx; height: 70rpx;" src="/images/zhao.png" mode="aspectFit"/>
             <text>添加封面</text>
           </block>
           <block wx:else>
@@ -21,7 +21,8 @@
     </view>
     <view class="description-wrap">
         <view class="title">点击输入同学录备注</view>
-        <textarea></textarea>
+        <textarea maxlength="{{ 50 }}" bindinput="handleDescriptionInput"></textarea>
+        <text>{{ description.length }}/50</text>
     </view>
     <view class="add-music">
         <view class="btn" hover-class="hover" bindtap="handleChooseMusic">

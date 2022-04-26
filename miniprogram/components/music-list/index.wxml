@@ -1,0 +1,17 @@
+<!--components/music-list/index.wxml-->
+<view class="music-list">
+  <block wx:for="{{ musicList }}" wx:key="id">
+    <view class="music-item">
+      <view class="l">
+        <view class="t1">{{ item.name }}</view>
+        <view class="t2">
+          {{ item.artists[0].name }} - {{ item.album.name }}
+        </view>
+      </view>
+      <view class="icons">
+        <image src="/images/jia.png"></image>
+        <image src="/images/play.png"></image>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,99 +1,133 @@
 /* pages/choose-music/index.wxss */
 page {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .search-bar {
-    padding: 15px;
-    height: 120rpx;
+  padding: 15px;
+  height: 120rpx;
 }
 
 .search {
-    position: relative;
-    height: 60rpx;
-    background-color: #EFF5FC;
-    border-radius: 30rpx;
-    line-height: 60rpx;
+  position: relative;
+  height: 60rpx;
+  background-color: #EFF5FC;
+  border-radius: 30rpx;
+  line-height: 60rpx;
 }
 
 .search input {
-    padding: 0 30rpx 0 60rpx;
-    height: 60rpx;
+  padding: 0 30rpx 0 60rpx;
+  height: 60rpx;
 }
 
 .search .icon {
-    position: absolute;
-    width: 40rpx;
-    height: 40rpx;
-    top: 50%;
-    left: 0;
-    transform: translate(50%, -50%);
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top: 50%;
+  left: 0;
+  transform: translate(50%, -50%);
 }
 
 .top-search {
-    padding: 10px 15px;
+  padding: 10px 15px;
 }
 
 .top-search .t1 {
-    height: 56rpx;
-    font-size: 40rpx;
-    font-weight: 700;
-    line-height: 56rpx;
-    color: #000000;
-    opacity: 1;
+  height: 56rpx;
+  font-size: 40rpx;
+  font-weight: 700;
+  line-height: 56rpx;
+  color: #000000;
+  opacity: 1;
 }
 
 .top-search .list {
-    /* display: flex; */
-    margin-left: -30rpx;
+  /* display: flex; */
+  margin-left: -30rpx;
 }
 
 .top-search .list .item {
-    display: inline-block;
-    margin-left: 30rpx;
-    margin-top: 20rpx;
-    font-size: 28rpx;
-    line-height: 48rpx;
-    color: #7B7B7B;
-    height: 48rpx;
-    background: rgba(239, 245, 252, 0.39);
-    border-radius: 24rpx;
-    padding: 0 15rpx;
+  display: inline-block;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  color: #7B7B7B;
+  height: 48rpx;
+  background: rgba(239, 245, 252, 0.39);
+  border-radius: 24rpx;
+  padding: 0 15rpx;
 }
 
 
-/*  */
+/* 搜索联想 */
 .search-tips {
-    padding: 15px;
+  padding: 15px;
 }
 
 .search-tips .item {
-    display: flex;
-    align-items: center;
-    height: 100rpx;
-    border-bottom: 2rpx solid #EFEFEF;
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  border-bottom: 2rpx solid #EFEFEF;
 }
 
+/* 搜索结果 */
 .search-result {
-    padding: 15px;
+  padding: 15px;
 }
 
 .search-result .item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100rpx;
 }
 
 .search-result .item .t1 {
-    height: 44rpx;
-    font-size: 32rpx;
-    line-height: 44rpx;
-    color: #0FCEED;
+  height: 44rpx;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #0FCEED;
 }
 
 .search-result .item .t2 {
-    height: 40rpx;
-    font-size: 28rpx;
-    line-height: 40rpx;
-    color: #777777;
+  height: 40rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #777777;
+}
+
+.search-result .item .icons {}
+
+.search-result .item .icons image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 5px;
+}
+
+.fixed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 750rpx;
+  min-height: 120rpx;
+  padding: 15px;
+  box-shadow: 0 -4rpx 4rpx rgba(0, 0, 0, .1);
+}
+
+.fixed .music-list .item {
+  line-height: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fixed .music-list .item image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 5px;
 }

@@ -18,7 +18,7 @@
         </block>
         <block wx:else>
             <scroll-view style="height: 100%;" scroll-y>
-                <yc-alumni wx:for="{{ 5 }}" wx:key="*this"/>
+                <yc-alumni wx:for="{{ alumniBooks }}" class-mate="{{ item }}" wx:key="_id"/>
             </scroll-view>
             <view class="create-btn" bindtap="handleCreateBook"></view>
         </block>

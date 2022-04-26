@@ -1,11 +1,11 @@
 <!--components/alumni/index.wxml-->
 <view class="alumni">
     <view class="cover">
-        <image style="width: 100%; height: 100%;" mode="aspectFill" src="/images/book.png"></image>
+        <image style="width: 100%; height: 100%;" mode="aspectFill" src="{{ classMate.cover }}"></image>
     </view>
     <view class="r">
-        <view class="title">大学同学录</view>
-        <view class="description two-ellipsis">我的同学录我的同学录我的同学录我的同学录我的同学录我的同学录我的同学录我的同学录我的同学录我的同学录我的同学录我的同学录</view>
+        <view class="title">{{classMate.title}}</view>
+        <view class="description two-ellipsis">{{ classMate.description }}</view>
         <view class="b">
             <view class="music">
                 音乐

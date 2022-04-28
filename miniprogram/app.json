@@ -7,8 +7,7 @@
     "pages/login/index",
     "pages/choose-music/index",
     "pages/invitation/index",
-    "pages/book-save/index",
-    "pages/test/index"
+    "pages/book-save/index"
   ],
   "window": {
     "backgroundColor": "#ffffff",
@@ -39,6 +38,23 @@
     ]
   },
   "lazyCodeLoading": "requiredComponents",
-  "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -1,8 +1,11 @@
 /**app.wxss**/
+@import "./miniprogram_npm/@vant/weapp/common/index.wxss";
 
 page {
   font-size: 32rpx;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
+    sans-serif;
   background: #f8f8f8;
   color: #222222;
 }
@@ -32,14 +35,25 @@ button {
 }
 
 /* button */
-button {
-  margin: 0;
-}
-
-button[type='primary'] {
-  background-color: #0FCEED !important;
-}
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.van-swipe-cell__left,
+.van-swipe-cell__right {
+  display: inline-block;
+  width: 65px;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  background-color: #f44;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+}
+
+.van-icon-wechat-moments:before {
+  content: "\e74f";
 }

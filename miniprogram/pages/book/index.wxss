@@ -42,3 +42,8 @@
     background-color: #ffffff;
     transform: translate(-50%,-50%) rotate(90deg);
 }
+
+.custom-class {
+  width: 160px;
+  height: 40px;
+}

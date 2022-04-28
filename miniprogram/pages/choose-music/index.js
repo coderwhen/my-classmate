@@ -42,12 +42,13 @@ Page({
     })
   }),
   keywordInput(e) {
-    const keywords = e.detail.value
+    const keywords = e.detail
     this.setData({
       keywords,
       current: keywords.length > 0 ? 1 : 0
     })
-    keywords.length > 0 && this._getMusicSearchSuggest(e.detail.value)
+    console.log(keywords)
+    keywords.length > 0 && this._getMusicSearchSuggest(keywords)
   },
   handleConfirm() {
 

@@ -1,5 +1,6 @@
 <!--index.wxml-->
-<!-- banner -->
+<scroll-view class="index" scroll-y>
+  <!-- banner -->
 <view class="banner">
   <swiper 
     class="swiper" 
@@ -43,3 +44,12 @@
   <image mode="aspectFill" style="width: 100%;" src="/images/d021eca5e55d4710caebaa1624a81bee@2x.png"></image>
   <button type="primary" class="trybtn" bindtap="handleTryBtnClick">去试试</button>
 </view>
+</scroll-view>
+
+<!-- <van-tabbar active="{{ 0 }}" bind:change="onChange">
+  <van-tabbar-item icon="home-o">标签</van-tabbar-item>
+  <van-tabbar-item icon="search">标签</van-tabbar-item>
+  <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
+  <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+</van-tabbar> -->
+<fuwuxieyi s="{{ true }}"/>

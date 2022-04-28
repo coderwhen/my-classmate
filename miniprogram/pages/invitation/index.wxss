@@ -83,6 +83,7 @@
   background-color: #ffffff;
   margin-left: 20px;
   height: 102rpx;
+  flex: 1;
 }
 
 .action .btn .icon {

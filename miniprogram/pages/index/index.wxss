@@ -1,4 +1,7 @@
 /**index.wxss**/
+.index {
+  height: 100vh;
+}
 
 .banner {
   background-color: #ffffff;

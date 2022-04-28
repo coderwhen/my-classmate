@@ -24,3 +24,4 @@
   </view>
   <button class="save-btn" type="primary">保存图片</button>
 </scroll-view>
+<canvas hidden canvas-id="cav" style="width: 300px; height: 400px; margin: auto;"></canvas>

@@ -25,7 +25,7 @@
         <text>我的同学录</text>
     </view>
 </view>
-
+<!-- 
 <view class="menu-list">
     <view class="menu-item" hover-class="active">
         <text>设置</text>
@@ -45,4 +45,13 @@
         <text>设置</text>
         <image class="icon" src="/images/arrow.svg"></image>
     </view>
-</view>
+</view> -->
+<van-cell-group title="分组1">
+  <van-cell title="单元格" value="内容" />
+  <van-cell title="单元格" value="内容" />
+  <van-cell title="单元格" value="内容" />
+  <van-cell title="单元格" value="内容" />
+</van-cell-group>
+<van-cell-group title="分组2">
+  <van-cell title="单元格" value="内容" />
+</van-cell-group>

@@ -1,12 +1,19 @@
 <!--pages/choose-music/index.wxml-->
 <!-- 搜索栏 -->
-<view class="search-bar">
+<!-- <view class="search-bar">
     <view class="search">
         <input type="text" value="{{ keywords }}" bindinput="keywordInput" bindconfirm="handleConfirm" placeholder="请输入搜索内容" />
         <image src="/images/search.png" class="icon"></image>
     </view>
-</view>
+</view> -->
+<van-search
+  value="{{ keywords }}"
+  placeholder="请输入搜索关键词"
+  show-action
+  bind:change="keywordInput"
+/>
 <!-- 最近搜索 -->
+<van-empty wx:if="{{ current === 0 && keywords.length === 0 }}" description="暂无历史搜索" />
 <block wx:if="{{  current === 0 && keywords.length === 0 }}">
     <view class="top-search">
         <view class="t1">
@@ -23,7 +30,7 @@
             <view class="item">有何不可</view>
         </view>
     </view>
-    <view class="top-search">
+    <!-- <view class="top-search">
         <view class="t1">
             热门搜索
         </view>
@@ -36,8 +43,8 @@
             <view class="item">有何不可</view>
             <view class="item">有何不可</view>
             <view class="item">有何不可</view>
-        </view>
-    </view>
+        </view> 
+    </view>-->
 </block>
 <!-- 搜索关键词联想 -->
 <view wx:elif="{{ current === 1 && keywords.length > 0 }}" class="search-tips">

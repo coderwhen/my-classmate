@@ -1,2 +1,0 @@
-<!--pages/test/index.wxml-->
-<yc-music-list music-list="{{[1,2,3]}}"/>

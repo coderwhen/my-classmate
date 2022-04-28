@@ -8,13 +8,6 @@
           "query": "",
           "launchMode": "default",
           "scene": null
-        },
-        {
-          "name": "测试页面",
-          "pathName": "pages/test/index",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
         }
       ]
     }

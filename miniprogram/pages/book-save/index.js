@@ -89,7 +89,10 @@ Page({
       })
 
       setTimeout(() => {
-        wx.hideLoading()
+        // wx.hideLoading()
+        wx.redirectTo({
+          url: '/pages/invitation/index',
+        })
       }, 2000)
 
     } catch(e) {

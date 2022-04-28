@@ -1,5 +1,6 @@
 {
   "enablePullDownRefresh": true,
   "usingComponents": {
+    "fuwuxieyi": "/components/fuwuxieyi/index"
   }
 }

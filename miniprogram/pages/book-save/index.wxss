@@ -5,6 +5,7 @@ page {
 
 .book-save {
     padding: 15px;
+    height: 100vh;
 }
 
 .cover {
@@ -91,6 +92,7 @@ page {
     justify-content: space-between;
     line-height: 120rpx;
     height: 120rpx;
+    padding: 5px;
 }
 
 .add-music .btn.hover {

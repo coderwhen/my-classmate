@@ -52,6 +52,9 @@
   <van-cell title="单元格" value="内容" />
   <van-cell title="单元格" value="内容" />
 </van-cell-group>
-<van-cell-group title="分组2">
-  <van-cell title="单元格" value="内容" />
+<van-cell-group title="关于">
+  <van-cell is-link title="关于我们" />
+  <van-cell is-link title="关于我们" />
+  <van-cell is-link title="关于我们" />
+  <van-cell is-link title="关于我们" />
 </van-cell-group>

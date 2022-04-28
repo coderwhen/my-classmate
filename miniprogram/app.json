@@ -21,19 +21,27 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "images/tabbar/index.png",
+        "selectedIconPath": "images/tabbar/index-active.png"
       },
       {
         "pagePath": "pages/book/index",
-        "text": "同学录"
+        "text": "同学录",
+        "iconPath": "images/tabbar/book.png",
+        "selectedIconPath": "images/tabbar/book-active.png"
       },
       {
         "pagePath": "pages/message/index",
-        "text": "消息"
+        "text": "消息",
+        "iconPath": "images/tabbar/message.png",
+        "selectedIconPath": "images/tabbar/message-active.png"
       },
       {
         "pagePath": "pages/profile/index",
-        "text": "我"
+        "text": "我",
+        "iconPath": "images/tabbar/profile.png",
+        "selectedIconPath": "images/tabbar/profile-active.png"
       }
     ]
   },
@@ -54,7 +62,8 @@
     "van-tabs": "@vant/weapp/tabs/index",
     "van-icon": "@vant/weapp/icon/index",
     "van-tabbar": "@vant/weapp/tabbar/index",
-    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-skeleton": "@vant/weapp/skeleton/index"
   },
   "sitemapLocation": "sitemap.json"
 }

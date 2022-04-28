@@ -1,7 +1,7 @@
 // pages/invitation/index.js
 Page({
   data: {
-    
+    loading: false
   },
   onLoad(e) {
     if (e.id) {
@@ -9,7 +9,11 @@ Page({
         type: 0
       })
     }
-
+    // setTimeout(() => {
+    //   this.setData({
+    //     loading: false
+    //   })
+    // }, 2000)
   },
   onReady() {
     wx.getImageInfo({
@@ -18,18 +22,33 @@ Page({
       console.log(res)
       this.data.bg = res.path
       const ctx = wx.createCanvasContext('cav')
-      console.log(ctx)
-      ctx.fillStyle = "#ffffff"
+      // 绘制背景
+      ctx.fillStyle = "#fff"
       ctx.fillRect(0, 0, 400, 500)
-      // ctx.moveTo(100, 100)
-      ctx.drawImage(this.data.bg, 0, 0, 300, 300)
-      ctx.fillStyle = "#222222"
-      ctx.setFontSize(20)
-      ctx.setFontSize(20)
-      ctx.fillText('Hello', 20, 20)
-      ctx.fillText('MINA', 100, 100)
-      ctx.fillText("长按识别二维码", 15, 350)
-      ctx.draw()
+      // 绘制背景图片
+      ctx.drawImage(this.data.bg, 0, 0, 320, 360)
+      ctx.fillStyle = "#fff"
+      ctx.fillRect(15, 15, 50, 50)
+      ctx.setFontSize(16)
+      ctx.fillText("懒羊羊睡醒了", 15, 90)
+      ctx.setFontSize(26)
+      ctx.fillText("你那么可爱", 15, 270)
+      ctx.fillText("帮我写个同学录吧!", 15, 305)
+      ctx.setFontSize(16)
+      ctx.fillStyle = "#000"
+      ctx.fillText("长按识别二维码", 15, 400)
+      ctx.fillRect(270, 370, 40, 40)
+      ctx.draw(true, () => {
+        wx.canvasToTempFilePath({
+          canvasId: 'cav',
+          success: (res) => {
+            console.log(res.tempFilePath)
+            this.setData({
+              tempFilePath: res.tempFilePath
+            })
+          }
+        })
+      })
     })
 
   },
@@ -44,5 +63,12 @@ Page({
       title: '同学帮我写个同学录吧！',
       path: '/pages/invitation/index?id=1'
     }
+  },
+  onSaveImage(e) {
+    wx.saveImageToPhotosAlbum({
+      filePath: this.data.tempFilePath
+    }).then(res => {
+      console.log(res)
+    })
   }
 })

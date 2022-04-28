@@ -8,6 +8,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "邀请",
+          "pathName": "pages/invitation/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

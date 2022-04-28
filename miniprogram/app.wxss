@@ -2,12 +2,12 @@
 @import "./miniprogram_npm/@vant/weapp/common/index.wxss";
 
 page {
-  font-size: 32rpx;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
     Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
     sans-serif;
   background: #f8f8f8;
   color: #222222;
+  --button-primary-background-color: #0FCEED;
 }
 
 view,
@@ -52,8 +52,4 @@ button {
   -webkit-box-orient: horizontal;
   -webkit-box-pack: center;
   -webkit-box-align: center;
-}
-
-.van-icon-wechat-moments:before {
-  content: "\e74f";
 }

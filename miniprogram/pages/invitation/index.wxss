@@ -1,4 +1,8 @@
 /* pages/invitation/index.wxss */
+page {
+  background-color: #ffffff;
+}
+
 .invitation {
   padding: 15px;
 }

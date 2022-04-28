@@ -1,27 +1,27 @@
 <!--pages/invitation/index.wxml-->
-<scroll-view class="invitation">
-  <view class="cover">
-    <image src="cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/yq.png" class="bg"/>
-    <view class="userinfo">
-      <image class="pic" src="/images/132.jpg"/>
-      <view>懒洋洋睡醒了</view>
+<van-skeleton title avatar row="3" loading="{{ loading }}">
+  <scroll-view class="invitation">
+    <view class="cover">
+      <image src="cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/yq.png" class="bg" />
+      <view class="userinfo">
+        <image class="pic" src="/images/132.jpg" />
+        <view>懒洋洋睡醒了</view>
+      </view>
+      <text class="title">你那么可爱\n帮我写个同学录吧！</text>
     </view>
-    <text class="title">你那么可爱\n帮我写个同学录吧！</text>
-  </view>
-  <view class="ercode">
-    <text>长按识别二维码</text>
-    <image src="/images/ercode.png"/>
-  </view>
-  <view class="action" wx:if="{{ type != 0 }}">
-    <button class="btn" open-type="getPhoneNumber">
-      <image class="icon" src="/images/py.png"/>
-      <text>发给朋友</text>
-    </button>
-    <button class="btn" open-type="share">
-      <image class="icon" src="/images/py.png"/>
-      <text>发朋友圈</text>
-    </button>
-  </view>
-  <button class="save-btn" type="primary">保存图片</button>
-</scroll-view>
-<canvas hidden canvas-id="cav" style="width: 300px; height: 400px; margin: auto;"></canvas>
+    <view class="ercode">
+      <text>长按识别二维码</text>
+      <image src="/images/ercode.png" />
+    </view>
+    <view class="action" wx:if="{{ type != 0 }}">
+      <van-button custom-class="btn" block plain type="primary">
+        <van-icon name="chat-o" dot />
+        同意
+      </van-button>
+      <van-button custom-class="btn" block plain type="primary">再看看</van-button>
+    </view>
+
+    <van-button type="primary" block bind:click="onSaveImage">保存图片</van-button>
+  </scroll-view>
+  <canvas canvas-id="cav" style="width: 320px; height: 420px; margin: auto;"></canvas>
+</van-skeleton>

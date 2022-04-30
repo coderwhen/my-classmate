@@ -1,0 +1,5 @@
+<!--pages/test/index.wxml-->
+<text>pages/test/index.wxml</text>
+<image style="height: 400rpx; width: 400rpx;" src="{{ imgUrl }}"/>
+<van-button bind:click="onDownloadMiniCode">小程序骂</van-button>
+<van-uploader />

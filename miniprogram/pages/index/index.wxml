@@ -45,11 +45,3 @@
   <button type="primary" class="trybtn" bindtap="handleTryBtnClick">去试试</button>
 </view>
 </scroll-view>
-
-<!-- <van-tabbar active="{{ 0 }}" bind:change="onChange">
-  <van-tabbar-item icon="home-o">标签</van-tabbar-item>
-  <van-tabbar-item icon="search">标签</van-tabbar-item>
-  <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-  <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
-</van-tabbar> -->
-<fuwuxieyi s="{{ true }}"/>

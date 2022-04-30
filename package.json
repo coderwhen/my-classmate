@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/coderwhen/my-classmate#readme",
   "dependencies": {
-    "@vant/weapp": "^1.10.2"
+    "@vant/weapp": "^1.10.2",
+    "guid": "^0.0.12"
   }
 }

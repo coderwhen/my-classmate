@@ -12,7 +12,7 @@
       </view>
       <view class="btns">
         <van-icon name="wechat-moments" />
-        <van-icon name="shop" />
+        <van-icon name="shop" size="20px"/>
         <image catchtap="handleShareClick" style="width: 20px; height: 20px; margin-left: 5px;" src="/images/fx.png"></image>
       </view>
     </view>

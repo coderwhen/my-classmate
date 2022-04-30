@@ -6,6 +6,7 @@ const musicUrl = require('./music-url')
 const bookSave = require('./book-save')
 const bookCover = require('./book-cover')
 const bookGet = require('./book-get')
+const bookCode = require('./book-code')
 // 云函数入口函数
 exports.main = async (event, context) => {
   console.log(event)
@@ -22,6 +23,8 @@ exports.main = async (event, context) => {
       return bookSave.main(event, context)
     case "book-cover":
       return bookCover.main(event, context)
+    case "book-code":
+      return bookCode.main(event, context)
     case "book-get":
       return bookGet.main(event, context)
     default:

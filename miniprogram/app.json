@@ -7,7 +7,8 @@
     "pages/login/index",
     "pages/choose-music/index",
     "pages/invitation/index",
-    "pages/book-save/index"
+    "pages/book-save/index",
+    "pages/test/index"
   ],
   "window": {
     "backgroundColor": "#ffffff",
@@ -63,7 +64,9 @@
     "van-icon": "@vant/weapp/icon/index",
     "van-tabbar": "@vant/weapp/tabbar/index",
     "van-tabbar-item": "@vant/weapp/tabbar-item/index",
-    "van-skeleton": "@vant/weapp/skeleton/index"
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index"
   },
   "sitemapLocation": "sitemap.json"
 }

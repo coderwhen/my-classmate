@@ -16,3 +16,8 @@ export const getClassMate = (data = {}) => {
   data.type = "book-get"
   return cloudFunction(data)
 }
+
+export const getClassMateCode = (data = {}) => {
+  data.type = "book-code"
+  return cloudFunction(data)
+}

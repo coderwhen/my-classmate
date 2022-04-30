@@ -9,6 +9,7 @@ Page({
         type: 0
       })
     }
+    console.log(e)
     // setTimeout(() => {
     //   this.setData({
     //     loading: false

@@ -75,19 +75,17 @@ page {
 }
 
 .action {
-  margin-top: 15px;
-  display: flex;
-  margin-left: -20px;
+  /* margin-top: 15px; */
+  /* display: flex; */
+  /* margin-left: -20px; */
 }
 
 .action .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  margin-left: 20px;
-  height: 102rpx;
-  flex: 1;
+  /* margin-left: 20px; */
+  /* flex: 1; */
+  /* width: 100%; */
+  /* box-sizing: border-box; */
+  margin-top: 15px;
 }
 
 .action .btn .icon {

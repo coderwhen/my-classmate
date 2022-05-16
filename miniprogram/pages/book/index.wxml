@@ -24,7 +24,7 @@
     </block>
     <block wx:elif="{{ joins.length === 0 }}">
       <van-empty description="还没有内容哟，快去分享一下吧！">
-        <van-button round type="primary" size="small">去分享</van-button>
+        <van-button bind:click="handleToShare" round type="primary" size="small">去分享</van-button>
       </van-empty>
     </block>
     <block wx:else>

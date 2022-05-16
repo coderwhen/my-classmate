@@ -20,7 +20,7 @@ Component({
     methods: {
       handleShareClick(e) {
         wx.navigateTo({
-          url: '/pages/invitation/index',
+          url: '/pages/invitation/index?scene='.concat(this.data.classMate._id),
         })
       }
     }

@@ -5,7 +5,9 @@
   </view>
   <view class="r">
     <view class="title">{{classMate.title}}</view>
-    <view class="description two-ellipsis">{{ classMate.description }}</view>
+    <view class="description two-ellipsis">
+      <text>{{ classMate.description }}</text>
+    </view>
     <view class="b">
       <view class="music">
         音乐

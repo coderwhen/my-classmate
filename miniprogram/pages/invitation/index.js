@@ -1,20 +1,27 @@
 // pages/invitation/index.js
+const {
+  getClassMateInvitation
+} = require('../../api/index')
 Page({
   data: {
+    bookId: '',
+    userInfo: {},
     loading: false
   },
   onLoad(e) {
-    if (e.id) {
+    if (e.scene) {
       this.setData({
-        type: 0
+        type: 0,
+        bookId: e.scene
       })
     }
-    console.log(e)
-    // setTimeout(() => {
-    //   this.setData({
-    //     loading: false
-    //   })
-    // }, 2000)
+    getClassMateInvitation({
+      bookId: e.scene
+    }).then(res => {
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
   },
   onReady() {
     wx.getImageInfo({
@@ -56,20 +63,16 @@ Page({
   onShareAppMessage() {
     return {
       title: '同学帮我写个同学录吧！',
-      path: '/pages/invitation/index?id=1'
+      path: '/pages/invitation/index?scene=' + this.data.bookId
     }
   },
   onShareTimeline() {
     return {
       title: '同学帮我写个同学录吧！',
-      path: '/pages/invitation/index?id=1'
+      path: '/pages/invitation/index?scene=' + this.data.bookId
     }
   },
   onSaveImage(e) {
-    wx.saveImageToPhotosAlbum({
-      filePath: this.data.tempFilePath
-    }).then(res => {
-      console.log(res)
-    })
+    
   }
 })

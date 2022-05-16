@@ -1,100 +1,109 @@
 /* pages/book-save/index.wxss */
 page {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .book-save {
-    padding: 15px;
-    height: 100vh;
+  /* padding: 15px; */
+  height: 100vh;
 }
 
 .cover {
-    display: flex;
-    align-items: flex-end;
+  padding: 15px;
+  display: flex;
+  align-items: flex-end;
 }
 
 .cover .cover-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    text-align: center;
-    padding: 4rpx;
-    width: 240rpx;
-    height: 240rpx;
-    background: rgba(235, 235, 235, 0.39);
-    border: 2rpx dashed#8C8C8C;
-    border-radius: 10rpx;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  padding: 4rpx;
+  width: 240rpx;
+  height: 240rpx;
+  background: rgba(235, 235, 235, 0.39);
+  border: 2rpx dashed#8C8C8C;
+  border-radius: 10rpx;
+  align-items: center;
 }
 
 .cover .cover-box text {
-    height: 34rpx;
-    font-size: 26rpx;
-    line-height: 34rpx;
-    color: #000000;
-    opacity: 1;
+  height: 34rpx;
+  font-size: 26rpx;
+  line-height: 34rpx;
+  color: #000000;
+  opacity: 1;
 }
 
 .cover text {
-    height: 34rpx;
-    font-size: 24rpx;
-    line-height: 34rpx;
-    color: #000000;
+  height: 34rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #000000;
 }
 
 .title-wrap {
-    margin-top: 15px;
+  padding: 0 15px;
+  margin-top: 15px;
 }
 
 .title-wrap .title {
-    height: 74rpx;
-    font-size: 52rpx;
-    line-height: 74rpx;
-    color: #000000;
+  height: 74rpx;
+  font-size: 52rpx;
+  line-height: 74rpx;
+  color: #000000;
 }
 
 .title-wrap input {
-    padding: 15px;
-    background-color:  rgba(235, 235, 235, 0.39);
-    border-radius: 10rpx;
+  padding: 15px;
+  background-color: rgba(235, 235, 235, 0.39);
+  border-radius: 10rpx;
 }
 
 .description-wrap {
-    margin-top: 15px;
-    position: relative;
+  padding: 0 15px;
+  margin-top: 15px;
+  position: relative;
 }
 
 .description-wrap .title {
-    height: 56rpx;
-    font-size: 40rpx;
-    line-height: 56rpx;
-    color: #000000;
+  height: 56rpx;
+  font-size: 40rpx;
+  line-height: 56rpx;
+  color: #000000;
 }
 
 .description-wrap textarea {
-    padding: 15px;
-    width: 100%;
-    border-radius: 10rpx;
-    background-color: rgba(235, 235, 235, 0.39);
+  padding: 15px;
+  width: 100%;
+  border-radius: 10rpx;
+  background-color: rgba(235, 235, 235, 0.39);
 }
 
 .description-wrap text {
   position: absolute;
-  right: 10px;
+  right: 25px;
   bottom: 10px;
 }
 
-.add-music {}
-
-.add-music .btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    line-height: 120rpx;
-    height: 120rpx;
-    padding: 5px;
+.add-music {
+  padding: 0 15px;
 }
 
-.add-music .btn.hover {
-    background-color: salmon;
+.add-music .btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 120rpx;
+  height: 120rpx;
+  padding: 5px;
+}
+
+/* .add-music .btn.hover {
+  background-color: salmon;
+} */
+
+.success {
+  padding: 0 15px;
 }

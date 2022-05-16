@@ -12,3 +12,11 @@
     height: 132rpx;
     width: 132rpx;
 }
+
+.btns {
+  width: 250px;
+}
+
+.btn {
+  margin-top: 10px;
+}

@@ -3,6 +3,9 @@ const {
   addClassMate,
   updateClassMateCover,
 } = require('../../api/index')
+const {
+  getGuid
+} = require('../../utils/uuid')
 Page({
   data: {
     coverImageUrl: '',
@@ -63,25 +66,28 @@ Page({
       description: this.data.description,
       musicList: this.data.musicList
     }
+
     try {
       wx.showLoading({
         title: '创建同学录中',
         mask: true
       })
+      
+      const upload = await wx.cloud.uploadFile({
+        cloudPath: 'cover/' + getGuid() + '.png',
+        filePath: this.data.coverImageUrl
+      })
+
+
+      classmate.cover = upload.fileID
+
       const res = await addClassMate(classmate)
+      
       wx.showLoading({
         title: '上传封面中',
         mask: true
       })
-      const upload = await wx.cloud.uploadFile({
-        cloudPath: 'cover/' + res.result._id + '.png',
-        filePath: this.data.coverImageUrl
-      })
-  
-      const covera = await updateClassMateCover({
-        _id: res.result._id,
-        cover: upload.fileID
-      })
+     
 
       wx.showLoading({
         title: '创建成功',
@@ -96,10 +102,12 @@ Page({
       }, 2000)
 
     } catch(e) {
-      wx.showLoading({
+      console.log(e)
+      wx.hideLoading()
+      wx.showToast({
         title: '发生错误了',
       })
-    }
+    } 
    
 
     this.isUpload = false

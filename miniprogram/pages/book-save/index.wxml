@@ -31,5 +31,7 @@
         </view>
         <yc-music-list music-list="{{ musicList }}" icon-list="{{ [{icon: '/images/fx.png', event: 'play'}] }}"/>
     </view>
-    <button bindtap="handleSuccess" type="primary">完成</button>
+    <view class="success">
+      <van-button bind:click="handleSuccess" block type="primary">完成</van-button>
+    </view>
 </scroll-view>

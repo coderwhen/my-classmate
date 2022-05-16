@@ -51,8 +51,28 @@ Page({
     })
   },
   handleCreateBook(e) {
-    wx.navigateTo({
-      url: '/pages/book-save/index'
+    wx.requestSubscribeMessage({
+      tmplIds: ['50cr-QnQDUOzZv4zHhjMbjMU3MIz6CiHIYIlLlDtuIs'],
+    }).then(res => {
+      console.log(res)
+      if(res['50cr-QnQDUOzZv4zHhjMbjMU3MIz6CiHIYIlLlDtuIs'] === 'accept') {
+        wx.navigateTo({
+          url: '/pages/book-save/index'
+        })
+      } else {
+        wx.showToast({
+          title: '客官请三思！',
+          icon: 'error'
+        })
+      }
+    }).catch(err => {
+      console.log(err)
+    })
+    
+  },
+  handleToShare(e) {
+    this.setData({
+      tabActiveIndex: 0
     })
   }
 })

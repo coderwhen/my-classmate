@@ -7,6 +7,7 @@ const bookSave = require('./book-save')
 const bookCover = require('./book-cover')
 const bookGet = require('./book-get')
 const bookCode = require('./book-code')
+const bookInvitation = require('./book-invitation')
 // 云函数入口函数
 exports.main = async (event, context) => {
   console.log(event)
@@ -27,6 +28,8 @@ exports.main = async (event, context) => {
       return bookCode.main(event, context)
     case "book-get":
       return bookGet.main(event, context)
+    case "book-invitation":
+      return bookInvitation.main(event, context)
     default:
       return {
         code: 400,

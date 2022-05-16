@@ -21,3 +21,8 @@ export const getClassMateCode = (data = {}) => {
   data.type = "book-code"
   return cloudFunction(data)
 }
+
+export const getClassMateInvitation = (data = {}) => {
+  data.type = "book-invitation"
+  return cloudFunction(data)
+}

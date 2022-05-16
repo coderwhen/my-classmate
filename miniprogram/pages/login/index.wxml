@@ -4,8 +4,8 @@
     <view class="avatar">
         <open-data type="userAvatarUrl"></open-data>
     </view>
-    <view class="btn">
-        <button type="primary" bindtap="handleUserLogin">确认登录</button>
-        <button>取消</button>
+    <view class="btns">
+        <van-button bind:click="handleUserLogin" custom-class="btn" type="primary" block>确认登录</van-button>
+        <van-button bind:click="handleLookLook" custom-class="btn" block>再看一看</van-button>
     </view>
 </view>

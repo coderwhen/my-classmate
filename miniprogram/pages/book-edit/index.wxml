@@ -1,0 +1,38 @@
+<!--pages/book-edit/index.wxml-->
+<view class="book-edit">
+  <van-row gutter="20">
+  <van-col span="12">
+    <view class="field">
+    <text>姓名：</text>
+    <input class="input"/>
+  </view>
+  </van-col>
+  <van-col span="12">
+    <view class="field">
+    <text>姓名：</text>
+    <input class="input"/>
+  </view>
+  </van-col>
+</van-row>
+  
+  <view class="field">
+    <text>姓名：</text>
+    <input class="input"/>
+  </view>
+  <view class="field">
+    <text>姓名：</text>
+    <input class="input"/>
+  </view>
+  <view class="field">
+    <text>姓名：</text>
+    <input class="input"/>
+  </view>
+  <view class="field">
+    <text>那些图片儿：</text>
+  </view>
+  <van-uploader
+    file-list="{{ fileList }}"
+    max-count="9"
+    bind:after-read="afterRead"
+  />
+</view>

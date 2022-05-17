@@ -6,14 +6,14 @@
   <view class="cover">
     <image src="cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/yq.png" class="bg" />
     <view class="userinfo">
-      <image class="pic" src="/images/132.jpg" />
-      <view>懒洋洋睡醒了</view>
+      <image class="pic" src="{{ userInfo.avatarUrl }}" />
+      <view>{{ userInfo.nickName }}</view>
     </view>
     <text class="title">你那么可爱\n帮我写个同学录吧！</text>
   </view>
   <view class="ercode">
     <text>长按识别二维码</text>
-    <image src="/images/ercode.png" />
+    <image src="{{ code ? 'data:image/png;base64,' + code : '/images/ercode.png' }}" />
   </view>
   <view class="action">
     <block wx:if="{{ type !== 0 }}">

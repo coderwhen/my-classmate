@@ -9,7 +9,8 @@
     "pages/invitation/index",
     "pages/book-save/index",
     "pages/test/index",
-    "pages/book-detail/index"
+    "pages/book-detail/index",
+    "pages/book-edit/index"
   ],
   "window": {
     "backgroundColor": "#ffffff",
@@ -63,13 +64,13 @@
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-icon": "@vant/weapp/icon/index",
-    "van-tabbar": "@vant/weapp/tabbar/index",
-    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
     "van-skeleton": "@vant/weapp/skeleton/index",
     "van-collapse": "@vant/weapp/collapse/index",
     "van-collapse-item": "@vant/weapp/collapse-item/index",
     "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
-    "van-dropdown-item": "@vant/weapp/dropdown-item/index"
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index"
   },
   "sitemapLocation": "sitemap.json"
 }

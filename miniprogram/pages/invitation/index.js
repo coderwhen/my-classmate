@@ -1,12 +1,15 @@
 // pages/invitation/index.js
 const {
-  getClassMateInvitation
+  getClassMateInvitation,
+  getClassMateCode
 } = require('../../api/index')
+
 Page({
   data: {
     bookId: '',
     userInfo: {},
-    loading: false
+    loading: true,
+    code: ''
   },
   onLoad(e) {
     if (e.scene) {
@@ -16,8 +19,33 @@ Page({
       })
     }
     getClassMateInvitation({
-      bookId: e.scene
+      _id: e.scene
     }).then(res => {
+      console.log(res)
+      const {result} = res
+      const {users: [userInfo]} = result.list[0]
+      this.setData({
+        userInfo
+      })
+    })
+    .finally(_ => {
+      this.setData({
+        loading: false
+      })
+    })
+    .catch(err => {
+      console.log(err)
+    })
+    getClassMateCode({
+      scene: e.scene
+    }).then(res => {
+      const { buffer } = res.result
+      console.log(buffer)
+      const base64 = wx.arrayBufferToBase64(buffer)
+      this.setData({
+        code: base64
+      })
+      console.log(base64)
       console.log(res)
     }).catch(err => {
       console.log(err)

@@ -4,9 +4,10 @@ cloud.init({
 })
 
 exports.main = async (event, context) => {
+  
   return await cloud.openapi.wxacode.getUnlimited({
     "page": 'pages/invitation/index',
-    "scene": 'a=1',
+    "scene": '',
     "checkPath": false,
     "envVersion": 'develop'
   })

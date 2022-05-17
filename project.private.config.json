@@ -29,6 +29,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "同学录编辑",
+          "pathName": "pages/book-edit/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -1,0 +1,28 @@
+/* pages/book-edit/index.wxss */
+page {
+  background-color: #884444;
+  height: 100vh;
+}
+
+.book-edit {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  /* bottom: 15px; */
+  left: 15px;
+  background-color: rgba(255, 255, 255, .9);
+  padding: 15px;
+  min-height: 300px;
+  color: #884444;
+  transition: all .3s;
+}
+
+.field {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.field .input {
+  flex: 1;
+  border-bottom: 1px dashed #884444;
+}

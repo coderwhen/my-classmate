@@ -5,14 +5,16 @@ cloud.init({
 const db = cloud.database()
 
 exports.main = async (event, context) => {
-  db.collection('yc_classmate')
-  // .doc(event._id)
-  // .aggregate()
+  return await db.collection('yc_classmate')
+  .aggregate()
+  .match({
+    _id: event._id
+  })
   .lookup({
-    from: 'books',
-    localField: 'book',
-    foreignField: 'title',
-    as: 'bookList',
+    from: 'yc_user',
+    localField: 'userInfo.openId',
+    foreignField: '_openid',
+    as: 'users',
   })
   .end()
 }

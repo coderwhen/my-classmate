@@ -16,9 +16,9 @@
     <image src="{{ code ? 'data:image/png;base64,' + code : '/images/ercode.png' }}" />
   </view>
   <view class="action">
-    <block wx:if="{{ type !== 0 }}">
-      <van-button custom-class="btn" icon="chat-o" block type="primary">同意</van-button>
-      <van-button custom-class="btn" icon="chat-o" block>再看看</van-button>
+    <block wx:if="{{ !self }}">
+      <van-button custom-class="btn" block type="primary" bind:click="handleGiveDo">帮Ta写一写</van-button>
+      <van-button custom-class="btn" block bind:click="handleLookLook">再看看</van-button>
     </block>
     <block wx:else>
       <van-button custom-class="btn" bind:click="onSaveImage" type="primary" block>保存图片</van-button>

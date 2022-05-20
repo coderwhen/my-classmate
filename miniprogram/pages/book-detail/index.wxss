@@ -10,10 +10,41 @@ page {
   top: 0;
   width: 100%;
   height: 104px;
+  z-index: 99;
 }
 
 .box {
   background-color: rgba(255,255,255, .9);
   padding: 104px 15px 0 15px;
   height: 100vh;
+}
+
+.box swiper {
+  min-height: 451px;
+}
+
+.book-edit {
+  /* position: fixed; */
+  /* top: 15px; */
+  /* right: 15px; */
+  /* left: 15px; */
+  background-color: rgba(255, 255, 255, .9);
+  padding: 31px 15px;
+  min-height: 300px;
+  color: #884444;
+  transition: all .3s;
+}
+
+.field {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.field .input {
+  flex: 1;
+  border-bottom: 1px dashed #884444;
+  padding: 5px;
+  font-size: 14px;
 }

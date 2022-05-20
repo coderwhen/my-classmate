@@ -4,10 +4,7 @@ Page({
     fileList: []
   },
   onLoad(options) {
-
-  },
-  onReady() {
-
+    console.log(options)
   },
   afterRead(e) {
     console.log(e)

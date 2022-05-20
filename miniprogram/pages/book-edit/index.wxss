@@ -8,7 +8,6 @@ page {
   position: fixed;
   top: 15px;
   right: 15px;
-  /* bottom: 15px; */
   left: 15px;
   background-color: rgba(255, 255, 255, .9);
   padding: 15px;
@@ -18,11 +17,25 @@ page {
 }
 
 .field {
+  font-size: 16px;
   display: flex;
+  align-items: center;
   margin-bottom: 15px;
 }
 
 .field .input {
   flex: 1;
   border-bottom: 1px dashed #884444;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.fixed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  height: 74px;
+  background-color: rgba(255, 255, 255, .9);
 }

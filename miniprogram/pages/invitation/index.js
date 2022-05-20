@@ -12,6 +12,7 @@ Page({
     code: ''
   },
   onLoad(e) {
+    console.log(e)
     if (e.scene) {
       this.setData({
         type: 0,
@@ -22,10 +23,10 @@ Page({
       _id: e.scene
     }).then(res => {
       console.log(res)
-      const {result} = res
-      const {users: [userInfo]} = result.list[0]
+      const {result: {userInfo,self}} = res
       this.setData({
-        userInfo
+        userInfo,
+        self
       })
     })
     .finally(_ => {
@@ -39,9 +40,10 @@ Page({
     getClassMateCode({
       scene: e.scene
     }).then(res => {
-      const { buffer } = res.result
-      console.log(buffer)
-      const base64 = wx.arrayBufferToBase64(buffer)
+      console.log(res)
+      const { buffer: {data} } = res.result
+      console.log(data)
+      const base64 = wx.arrayBufferToBase64(data)
       this.setData({
         code: base64
       })
@@ -101,6 +103,21 @@ Page({
     }
   },
   onSaveImage(e) {
-    
+    wx.showToast({
+      title: '保存图片',
+    })
+  },
+  handleLookLook(e) {
+    wx.showToast({
+      title: '再看看',
+    })
+  },
+  handleGiveDo(e) {
+    wx.showToast({
+      title: '帮Ta写',
+    })
+    wx.navigateTo({
+      url: '/pages/book-edit/index?id='.concat(this.data.bookId),
+    })
   }
 })

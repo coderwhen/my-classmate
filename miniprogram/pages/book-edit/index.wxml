@@ -1,30 +1,29 @@
 <!--pages/book-edit/index.wxml-->
 <view class="book-edit">
   <van-row gutter="20">
-  <van-col span="12">
-    <view class="field">
-    <text>姓名：</text>
-    <input class="input"/>
-  </view>
-  </van-col>
-  <van-col span="12">
-    <view class="field">
-    <text>姓名：</text>
-    <input class="input"/>
-  </view>
-  </van-col>
-</van-row>
-  
+    <van-col span="12">
+      <view class="field">
+      <text>姓名：</text>
+      <input class="input" placeholder="你的名字"/>
+    </view>
+    </van-col>
+    <van-col span="12">
+      <view class="field">
+      <text>生日：</text>
+      <input class="input"/>
+    </view>
+    </van-col>
+  </van-row>
   <view class="field">
-    <text>姓名：</text>
-    <input class="input"/>
-  </view>
-  <view class="field">
-    <text>姓名：</text>
+    <text>手机：</text>
     <input class="input"/>
   </view>
   <view class="field">
-    <text>姓名：</text>
+    <text>你的梦想：</text>
+    <input class="input"/>
+  </view>
+  <view class="field">
+    <text>你的哈哈：</text>
     <input class="input"/>
   </view>
   <view class="field">
@@ -35,4 +34,7 @@
     max-count="9"
     bind:after-read="afterRead"
   />
+</view>
+<view class="fixed">
+  <van-button type="primary" block>填写完成</van-button>
 </view>

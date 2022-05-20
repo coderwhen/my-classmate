@@ -1,12 +1,6 @@
 <!--pages/book-detail/index.wxml-->
 <view class="header">
-  <van-search
-    value="{{ keyword }}"
-    placeholder="请输入搜索关键词"
-    use-action-slot
-    bind:change="onChange"
-    bind:search="onSearch"
-  >
+  <van-search value="{{ keyword }}" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange" bind:search="onSearch">
     <view slot="action" bind:tap="onClick">搜索</view>
   </van-search>
   <van-dropdown-menu active-color="#0FCEED">
@@ -14,5 +8,44 @@
     <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" />
   </van-dropdown-menu>
 </view>
+<view class="box">
+<swiper>
+  <block wx:for="{{ 9 }}">
+    <swiper-item>
+      <view class="book-edit">
+        <van-row gutter="20">
+          <van-col span="12">
+            <view class="field">
+              <text>姓名：</text>
+              <input class="input" placeholder="你的名字" />
+            </view>
+          </van-col>
+          <van-col span="12">
+            <view class="field">
+              <text>生日：</text>
+              <input class="input" />
+            </view>
+          </van-col>
+        </van-row>
+        <view class="field">
+          <text>手机：</text>
+          <input class="input" />
+        </view>
+        <view class="field">
+          <text>你的梦想：</text>
+          <input class="input" />
+        </view>
+        <view class="field">
+          <text>你的哈哈：</text>
+          <input class="input" />
+        </view>
+        <view class="field">
+          <text>那些图片儿：</text>
+        </view>
+        <van-uploader file-list="{{ fileList }}" max-count="9" bind:after-read="afterRead" />
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
 
-<view class="box"></view>
+</view>

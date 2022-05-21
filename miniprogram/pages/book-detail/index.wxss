@@ -14,7 +14,7 @@ page {
 }
 
 .box {
-  background-color: rgba(255,255,255, .9);
+  /* background-color: rgba(255,255,255, .9); */
   padding: 104px 15px 0 15px;
   height: 100vh;
 }

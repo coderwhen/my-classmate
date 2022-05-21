@@ -16,7 +16,7 @@
   </van-row>
   <view class="field">
     <text>手机：</text>
-    <input class="input"/>
+    <input class="input" type="number"/>
   </view>
   <view class="field">
     <text>你的梦想：</text>
@@ -36,5 +36,5 @@
   />
 </view>
 <view class="fixed">
-  <van-button type="primary" block>填写完成</van-button>
+  <van-button type="primary" bind:click="handleEditSuccess" block>填写完成</van-button>
 </view>

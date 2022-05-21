@@ -4,10 +4,10 @@ const musicSuggest = require('./music-suggest')
 const musicResult = require('./music-result')
 const musicUrl = require('./music-url')
 const bookSave = require('./book-save')
-const bookCover = require('./book-cover')
 const bookGet = require('./book-get')
 const bookCode = require('./book-code')
 const bookInvitation = require('./book-invitation')
+const bookEdit = require('./book-edit')
 // 云函数入口函数
 exports.main = async (event, context) => {
   console.log(event)
@@ -22,14 +22,14 @@ exports.main = async (event, context) => {
       return musicUrl.main(event, context)
     case "book-save":
       return bookSave.main(event, context)
-    case "book-cover":
-      return bookCover.main(event, context)
     case "book-code":
       return bookCode.main(event, context)
     case "book-get":
       return bookGet.main(event, context)
     case "book-invitation":
       return bookInvitation.main(event, context)
+    case "book-edit":
+      return bookEdit.main(event, context)
     default:
       return {
         code: 400,

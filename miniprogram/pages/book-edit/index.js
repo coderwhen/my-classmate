@@ -12,5 +12,8 @@ Page({
     this.setData({
       fileList: [...this.data.fileList, detail.file]
     })
+  },
+  handleEditSuccess(e) {
+    console.log(e)
   }
 })

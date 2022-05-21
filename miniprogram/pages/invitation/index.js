@@ -41,7 +41,8 @@ Page({
       scene: e.scene
     }).then(res => {
       console.log(res)
-      const { buffer: {data} } = res.result
+      let { buffer } = res.result
+      buffer = buffer.data || buffer
       console.log(data)
       const base64 = wx.arrayBufferToBase64(data)
       this.setData({

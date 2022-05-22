@@ -26,3 +26,8 @@ export const getClassMateInvitation = (data = {}) => {
   data.type = "book-invitation"
   return cloudFunction(data)
 }
+
+export const addClassMateList = (data = {}) => {
+  data.type = "book-edit"
+  return cloudFunction(data)
+}

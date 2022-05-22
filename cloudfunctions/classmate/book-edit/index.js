@@ -4,12 +4,13 @@ cloud.init({
 })
 
 exports.main = async (event, context) => {
+  delete event.type
   const {data:classMate} = await cloud.database().collection('yc_classmate').doc(event._id).get()
+  const classMateList = await cloud.database().collection('yc_classmate_list');
   const re = await cloud.database().collection('yc_classmate_list').add({
     data: {
       classmateid: event._id,
-      "test1": "test1",
-      "test2": "test2",
+      ...event
     }
   })
   const r = await cloud.database().collection('yc_message').add({

@@ -10,7 +10,9 @@
     "pages/book-save/index",
     "pages/test/index",
     "pages/book-detail/index",
-    "pages/book-edit/index"
+    "pages/book-edit/index",
+    "pages/webview/index",
+    "pages/book-success/index"
   ],
   "window": {
     "backgroundColor": "#ffffff",

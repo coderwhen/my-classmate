@@ -18,5 +18,10 @@ Page({
     }).catch(err => {
       console.log(err)
     })
+  },
+  handleToWebView(e) {
+    wx.navigateTo({
+      url: '/pages/webview/index?url='.concat('https://mp.weixin.qq.com/s/CbViWzu8Bl26yMm8WDUSaQ'),
+    })
   }
 })

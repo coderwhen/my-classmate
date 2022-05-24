@@ -26,14 +26,14 @@
         {
           "name": "同学录详情",
           "pathName": "pages/book-detail/index",
-          "query": "",
+          "query": "bookId=0ab5303b626a970a00abd9b65e749f14",
           "launchMode": "default",
           "scene": null
         },
         {
           "name": "同学录编辑",
           "pathName": "pages/book-edit/index",
-          "query": "",
+          "query": "bookId=0ab5303b626a970a00abd9b65e749f14",
           "launchMode": "default",
           "scene": null
         },

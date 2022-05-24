@@ -1,51 +1,56 @@
 <!--pages/book-detail/index.wxml-->
+<wxs module="tools" src="../../utils/index.wxs"></wxs>
+
 <view class="header">
   <van-search value="{{ keyword }}" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange" bind:search="onSearch">
     <view slot="action" bind:tap="onClick">搜索</view>
   </van-search>
   <van-dropdown-menu active-color="#0FCEED">
-    <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" />
-    <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" />
+    <van-dropdown-item value="{{ value1 }}" bind:change="handleChange" options="{{ option1 }}" />
+    <van-dropdown-item value="{{ value2 }}" bind:change="handleChange" options="{{ option2 }}" />
   </van-dropdown-menu>
 </view>
-<view class="box">
-<swiper>
-  <block wx:for="{{ 9 }}">
-    <swiper-item>
-      <view class="book-edit">
+<scroll-view class="box" scroll-y>
+  <block wx:if="{{ bookList.length > 0 }}">
+    <block wx:for="{{ bookList }}">
+      <view class="book-edit" hover-class="active">
         <van-row gutter="20">
           <van-col span="12">
             <view class="field">
               <text>姓名：</text>
-              <input class="input" placeholder="你的名字" />
+              <text class="input">{{ item.fields.name }}</text>
             </view>
           </van-col>
           <van-col span="12">
             <view class="field">
               <text>生日：</text>
-              <input class="input" />
+              <text class="input">{{ item.fields.bir }}</text>
             </view>
           </van-col>
         </van-row>
         <view class="field">
           <text>手机：</text>
-          <input class="input" />
+          <text class="input">{{ item.fields.phone }}</text>
         </view>
         <view class="field">
           <text>你的梦想：</text>
-          <input class="input" />
+          <text class="input">{{ item.fields.feed }}</text>
         </view>
         <view class="field">
           <text>你的哈哈：</text>
-          <input class="input" />
+          <text class="input">{{ item.fields.commit }}</text>
         </view>
         <view class="field">
           <text>那些图片儿：</text>
         </view>
-        <van-uploader file-list="{{ fileList }}" max-count="9" bind:after-read="afterRead" />
+        <van-uploader file-list="{{ item.fileList }}" deletable="{{ false }}" max-count="{{ item.fileList.length }}" />
+        <view class="field time" style="margin-bottom: 0;">
+          <text>录入时间：</text>
+          <text>{{ tools.newFormatTime(item.time) }}</text>
+        </view>
       </view>
-    </swiper-item>
+    </block>
+    <van-button bind:click="handleDownPage">下一页</van-button>
   </block>
-</swiper>
-
-</view>
+  <van-empty wx:else description="描述文字" />
+</scroll-view>

@@ -52,10 +52,10 @@ Page({
   },
   handleCreateBook(e) {
     wx.requestSubscribeMessage({
-      tmplIds: ['50cr-QnQDUOzZv4zHhjMbjMU3MIz6CiHIYIlLlDtuIs'],
+      tmplIds: ['6CVbCY1SRcVuhvsCTtPzBcmUXFsZWv0HS2b4tRdlJ4U'],
     }).then(res => {
       console.log(res)
-      if(res['50cr-QnQDUOzZv4zHhjMbjMU3MIz6CiHIYIlLlDtuIs'] === 'accept') {
+      if(res['6CVbCY1SRcVuhvsCTtPzBcmUXFsZWv0HS2b4tRdlJ4U'] === 'accept') {
         wx.navigateTo({
           url: '/pages/book-save/index'
         })

@@ -1,6 +1,6 @@
 /* pages/book-detail/index.wxss */
 page {
-  background-color: #0FCEED;
+  /* background-color: #0FCEED; */
   height: 100vh;
 }
 
@@ -19,6 +19,12 @@ page {
   height: 100vh;
 }
 
+.box::after,.box::before {
+  content: '';
+  display: block;
+  height: 0;
+}
+
 .box swiper {
   min-height: 451px;
 }
@@ -28,11 +34,19 @@ page {
   /* top: 15px; */
   /* right: 15px; */
   /* left: 15px; */
-  background-color: rgba(255, 255, 255, .9);
-  padding: 31px 15px;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 31px 15px 5px 15px;
   min-height: 300px;
   color: #884444;
   transition: all .3s;
+  margin: 25px 0;
+  transform: translate(0, 0);
+}
+
+.book-edit.active {
+  box-shadow: 0 0 4px rgba(0,0,0,.4);
+  background-color: rgba(255, 255, 255, .95);
+  transform: translate(0, -15px);
 }
 
 .field {
@@ -42,9 +56,13 @@ page {
   margin-bottom: 15px;
 }
 
+.field.time {
+  font-size: 12px;
+}
+
 .field .input {
   flex: 1;
   border-bottom: 1px dashed #884444;
-  padding: 5px;
+  padding: 7px 5px 5px 5px;
   font-size: 14px;
 }

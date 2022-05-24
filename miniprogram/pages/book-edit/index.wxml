@@ -1,31 +1,34 @@
 <!--pages/book-edit/index.wxml-->
-<view class="book-edit">
+<van-skeleton title row="3" wx:if="{{ loading }}" />
+<view wx:else class="book-edit">
   <view class="music"></view>
   <van-row gutter="20">
     <van-col span="12">
       <view class="field">
       <text>姓名：</text>
-      <input class="input" data-field="name" bind:input="onInput" placeholder="你的名字"/>
+      <input class="input" value="{{ fields.name }}" data-field="name" bind:input="onInput" placeholder="你的名字"/>
     </view>
     </van-col>
     <van-col span="12">
       <view class="field">
       <text>生日：</text>
-      <input class="input" data-field="bir" bind:input="onInput" placeholder="你的生日"/>
+      <!-- <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" /> -->
+      <picker class="input" mode="date" bindchange="handleDate">{{ fields.bir ? fields.bir : '你的生日' }}</picker>
+      <!-- <input class="input" data-field="bir" bind:input="onInput" placeholder="你的生日"/> -->
     </view>
     </van-col>
   </van-row>
   <view class="field">
     <text>手机：</text>
-    <input class="input" data-field="phone" bind:input="onInput" placeholder="你的手机号" type="number"/>
+    <input class="input" value="{{ fields.phone }}" data-field="phone" bind:input="onInput" placeholder="你的手机号" type="number"/>
   </view>
   <view class="field">
     <text>你的梦想：</text>
-    <input class="input" date-field="feed" bind:input="onInput" placeholder="你的梦想"/>
+    <input class="input" value="{{ fields.feed }}" data-field="feed" bind:input="onInput" placeholder="你的梦想"/>
   </view>
   <view class="field">
     <text>你的哈哈：</text>
-    <input class="input" data-field="commit" bind:input="onInput" placeholder="预留字段"/>
+    <input class="input" value="{{ fields.commit }}" data-field="commit" bind:input="onInput" placeholder="预留字段"/>
   </view>
   <view class="field">
     <text>那些图片儿：</text>
@@ -35,8 +38,11 @@
     max-count="9"
     bind:after-read="afterRead"
     multiple
+    deletable="{{ true }}"
+    bind:delete="handleImageDelete"
   />
 </view>
 <view class="fixed">
   <van-button type="primary" bind:click="handleEditSuccess" block>填写完成</van-button>
+  <!-- <van-button type="primary" bind:click="handleUploader" block>上传图片</van-button> -->
 </view>

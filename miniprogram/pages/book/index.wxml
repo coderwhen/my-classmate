@@ -3,10 +3,12 @@
 <swiper class="swiper {{ isLogin ? 'login' : '' }}" duration="{{ 300 }}" current="{{ tabActiveIndex }}" bindchange="handleSwiperChange">
   <swiper-item>
     <block wx:if="{{ !isLogin }}">
-      <yc-center-image title="还没有登录" description="点击下方按钮登录吧" />
+      <van-empty description="还没登录哟，快去登录吧！">
+      </van-empty>
     </block>
     <block wx:elif="{{ alumniBooks.length === 0 }}">
-      <yc-center-image title="还没有同学录" description="点击下方按钮创建一个吧" />
+      <van-empty description="点击下方按钮创建一个吧!">
+      </van-empty>
       <view class="create-btn" bindtap="handleCreateBook"></view>
     </block>
     <block wx:else>

@@ -22,6 +22,11 @@ Component({
         wx.navigateTo({
           url: '/pages/invitation/index?scene='.concat(this.data.classMate._id),
         })
+      },
+      handleToDetail(e) {
+        wx.navigateTo({
+          url: '/pages/book-detail/index?bookId='.concat(this.data.classMate._id),
+        })
       }
     }
 })

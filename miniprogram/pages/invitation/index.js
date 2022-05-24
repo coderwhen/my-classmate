@@ -118,7 +118,7 @@ Page({
       title: '帮Ta写',
     })
     wx.navigateTo({
-      url: '/pages/book-edit/index?id='.concat(this.data.bookId),
+      url: '/pages/book-edit/index?bookId='.concat(this.data.bookId),
     })
   }
 })

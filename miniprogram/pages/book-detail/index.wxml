@@ -10,9 +10,9 @@
     <van-dropdown-item value="{{ value2 }}" bind:change="handleChange" options="{{ option2 }}" />
   </van-dropdown-menu>
 </view>
-<scroll-view class="box" scroll-y>
+<scroll-view class="box" bindscrolltolower="handleToLower" scroll-y>
   <block wx:if="{{ bookList.length > 0 }}">
-    <block wx:for="{{ bookList }}">
+    <block wx:for="{{ bookList }}" wx:key="_id">
       <view class="book-edit" hover-class="active">
         <van-row gutter="20">
           <van-col span="12">
@@ -50,7 +50,7 @@
         </view>
       </view>
     </block>
-    <van-button bind:click="handleDownPage">下一页</van-button>
+    <van-loading type="spinner" color="#1989fa" />
   </block>
   <van-empty wx:else description="描述文字" />
 </scroll-view>

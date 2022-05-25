@@ -1,7 +1,6 @@
 <!--pages/book-edit/index.wxml-->
 <van-skeleton title row="3" wx:if="{{ loading }}" />
 <view wx:else class="book-edit">
-  <view class="music"></view>
   <van-row gutter="20">
     <van-col span="12">
       <view class="field">
@@ -42,7 +41,16 @@
     bind:delete="handleImageDelete"
   />
 </view>
-<view class="fixed">
+<view class="fixed" hidden="{{ loading }}">
   <van-button type="primary" bind:click="handleEditSuccess" block>填写完成</van-button>
-  <!-- <van-button type="primary" bind:click="handleUploader" block>上传图片</van-button> -->
 </view>
+<view class="music" bind:tap="handleMusicClick">1</view>
+<van-popup
+  show="{{ show }}"
+  round
+  position="bottom"
+  custom-style="height: 20%"
+  bind:close="onClose"
+>
+  adasd
+</van-popup>

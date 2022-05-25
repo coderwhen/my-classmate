@@ -1,80 +1,90 @@
 <!--pages/choose-music/index.wxml-->
 <!-- 搜索栏 -->
-<!-- <view class="search-bar">
-    <view class="search">
-        <input type="text" value="{{ keywords }}" bindinput="keywordInput" bindconfirm="handleConfirm" placeholder="请输入搜索内容" />
-        <image src="/images/search.png" class="icon"></image>
-    </view>
-</view> -->
-<van-search
-  value="{{ keywords }}"
-  placeholder="请输入搜索关键词"
-  show-action
-  bind:change="keywordInput"
-/>
+<van-search value="{{ keywords }}" placeholder="请输入搜索关键词" show-action bind:change="keywordInput" />
 <!-- 最近搜索 -->
-<van-empty wx:if="{{ current === 0 && keywords.length === 0 }}" description="暂无历史搜索" />
-<block wx:if="{{  current === 0 && keywords.length === 0 }}">
+<block wx:if="{{ current === 0 && keywords.length === 0 }}">
+  <van-empty wx:if="{{ historyList.length === 0 }}" description="暂无历史搜索" />
+  <block wx:else>
     <view class="top-search">
-        <view class="t1">
-            最近搜索
-        </view>
-        <view class="list">
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-        </view>
+      <view class="t1">
+        最近搜索
+      </view>
+      <view class="list">
+        <block wx:for="{{ historyList }}" wx:key="*this">
+          <view class="item" data-tip="{{ {keyword: item} }}" bind:tap="handleTipsClick">
+            {{ item }}
+          </view>
+        </block>
+      </view>
     </view>
-    <!-- <view class="top-search">
-        <view class="t1">
-            热门搜索
-        </view>
-        <view class="list">
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-            <view class="item">有何不可</view>
-        </view> 
-    </view>-->
+  </block>
 </block>
 <!-- 搜索关键词联想 -->
 <view wx:elif="{{ current === 1 && keywords.length > 0 }}" class="search-tips">
-    <block wx:for="{{ suggests }}" wx:for-item="suggest" wx:key="index">
-        <view class="item" data-tip="{{ suggest }}" bindtap="handleTipsClick">
-            <image src="/images/search.png" style="width: 20px; height: 20px;"></image>
-            <text style="flex: 1; margin: 0 15px;">{{ suggest.keyword }}</text>
-            <image src="/images/arrow.png" style="width: 20px; height: 20px;"></image>
-        </view>
+  <van-gorup>
+    <block wx:for="{{ suggests }}">
+      <van-cell bind:click="handleTipsClick" title="{{ item.keyword }}" data-tip="{{ item }}" icon="search" />
     </block>
+  </van-gorup>
 </view>
 <!-- 搜索结果 -->
 <block wx:else>
   <view wx:if="{{ searchLoading }}" class="search-loading" style="text-align: center;">
     加载中...
   </view>
-  <yc-music-list 
-    wx:else 
-    music-list="{{ searchSongs }}"
-    icon-list="{{ [{icon:'/images/fx.png',event: 'play'}, {icon: '/images/fx.png', event: 'add'}] }}"
-    bindplay="handleMusicClick"
-    bindadd="handleJoin"
-  />
+  <van-group wx:else>
+    <block wx:for="{{ searchSongs }}" wx:key="id">
+      <van-cell 
+        size="large"
+        center 
+        title="{{ item.name }}" 
+        label="{{ (item.artists[0] ? item.artists[0].name : '') + ' ' + (item.alias[0] ? item.alias[0] : '') }}">
+        <view slot="right-icon">
+          <van-icon size="30px" bind:click="handleJoin" name="add" data-song="{{ item }}" class="custom-icon" />
+          <van-icon size="30px" bind:click="handleMusicClick" name="play-circle" data-song="{{ item }}" class="custom-icon" />
+        </view>
+      </van-cell>
+    </block>
+  </van-group>
   <view class="fixed">
-    <yc-music-list 
-      music-list="{{ musicList }}"
-      icon-list="{{[{icon: '/images/fx.png', event: 'delete'}]}}"
-      binddelete="handleDeleteMusic"
-    />
-    <button bindtap="handleChooseSuccess" type="primary">完成</button>
+    <van-submit-bar 
+      price="{{ 0 }}" 
+      label="{{ ' ' }}" 
+      button-type="primary" 
+      button-text="完成" 
+      price-class="none" 
+      bind:submit="onClickButton" 
+      tip="{{ true }}"
+      bind:submit="handleChooseSuccess"
+    >
+      <view>
+        <van-tag type="primary" bind:tap="handleOpen">已选择 {{ musicList.length }} 首音乐</van-tag>
+      </view>
+      <view slot="tip" bind:tap="handleOpen">为您的同学录选取音乐</view>
+    </van-submit-bar>
   </view>
 </block>
+<van-popup
+  show="{{ show }}"
+  round
+  position="bottom"
+  custom-style="height: 45%"
+  bind:close="onClose"
+>
+  <van-group>
+    <block wx:for="{{ musicList }}" wx:key="id">
+      <van-cell 
+        center 
+        title="{{ item.name }}" 
+        size="large"
+        label="{{ (item.artists[0] ? item.artists[0].name : '') + ' ' + (item.alias[0] ? item.alias[0] : '') }}">
+        <view slot="right-icon">
+          <van-icon size="30px" bind:click="handleJoin" name="clear" data-song="{{ item }}" class="custom-icon" />
+          <van-icon size="30px" wx:if="{{ item.id !== playList[currentMusic].id }}" bind:click="handleMusicClick" name="play-circle" data-song="{{ item }}" class="custom-icon" />
+          <van-icon size="30px" bind:click="handleMusicPause" wx:else name="pause-circle" class="custom-icon" />
+        </view>
+      </van-cell>
+    </block>
+  </van-group>
+</van-popup>
 <audio hidden="{{ true }}" bindended="handleMusicEnd" id="audio" src="{{ playList[currentMusic].url }}" controls></audio>

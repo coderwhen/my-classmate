@@ -8,6 +8,7 @@ page {
   background: #f8f8f8;
   color: #222222;
   --button-primary-background-color: #0FCEED;
+  --button-primary-border-color: #0FCEED;
 }
 
 view,

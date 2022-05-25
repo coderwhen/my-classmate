@@ -43,6 +43,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "webview",
+          "pathName": "pages/webview/index",
+          "query": "url=https://mp.weixin.qq.com/s?__biz=Mzg4MzcxODQ2Mw==&mid=2247483653&idx=1&sn=2fb8353042076169251dd5a8b4a93043&chksm=cf426155f835e843a5ef7e032cb0cda4561f77f85163ebd959544b30ddca6040544c05b86b33#rd",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -10,6 +10,8 @@ const {
 
 Page({
   data: {
+    // 历史搜索
+    historyList: [],
     // 搜索关键词
     keywords: '',
     // 联想结果
@@ -24,10 +26,22 @@ Page({
     playList: [],
     // 当前播放
     currentMusic: 0,
-    current: 0
+    current: 0,
+    show: false
+  },
+  onLoad() {
+    const historyList = wx.getStorageSync('_historyList')
+    if(historyList) {
+      this.setData({
+        historyList
+      })
+    }
   },
   onReady() {
     this.musicAud = wx.createAudioContext('audio')
+  },
+  onUnload() {
+    wx.setStorageSync('_historyList', this.data.historyList)
   },
   _getMusicSearchSuggest: throttle(function (keywords) {
     getMusicSearchSuggest({
@@ -41,6 +55,12 @@ Page({
       console.log(err)
     })
   }),
+  /**
+   * 用户输入搜索关键词
+   * @author coderwhen
+   * @date 2022-5-25
+   * @param {} e 
+   */
   keywordInput(e) {
     const keywords = e.detail
     this.setData({
@@ -51,10 +71,7 @@ Page({
     keywords.length > 0 && this._getMusicSearchSuggest(keywords)
   },
   handleConfirm() {
-
-  },
-  handleTipsClick(e) {
-    const keywords = e.currentTarget.dataset.tip.keyword
+    const keywords = this.data.keywords
     this.setData({
       current: 2,
       searchLoading: true,
@@ -75,8 +92,32 @@ Page({
       console.log(err)
     })
   },
+  handleTipsClick(e) {
+    const keywords = e.currentTarget.dataset.tip.keyword
+    this.data.historyList.push(keywords)
+    this.setData({
+      current: 2,
+      searchLoading: true,
+      keywords,
+      historyList: this.data.historyList
+    })
+    getMusicSearch({
+      keywords
+    }).then(res => {
+      console.log(res)
+      this.setData({
+        searchSongs: res.result.body.result.songs,
+      })
+    }).finally(() => {
+      this.setData({
+        searchLoading: false
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+  },
   handleJoin(e) {
-    const music = e.detail
+    const music = e.target.dataset.song
     const musicList = this.data.musicList
     const musicItem = musicList.find(item => item.id === music.id)
     if(musicItem) {
@@ -91,7 +132,8 @@ Page({
   },
   handleMusicClick(e) {
     console.log(e)
-    const id = e.detail.id
+    const music = e.target.dataset.song
+    const id = music.id
     getMusicUrl({
       id
     }).then(res => {
@@ -130,5 +172,21 @@ Page({
     }, () => {
       wx.navigateBack()
     })
+  },
+  onClose(e) {
+    this.setData({
+      show: false
+    })
+  },
+  handleOpen(e) {
+    this.setData({
+      show: true
+    })
+  },
+  handleMusicPause(e) {
+    this.setData({
+      currentMusic: -1
+    })
+    this.musicAud.pause()
   }
 })

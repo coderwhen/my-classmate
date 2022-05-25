@@ -13,7 +13,8 @@ Page({
     loading: true,
     fields: {},
     fileList: [],
-    now: new Date().getTime()
+    now: new Date().getTime(),
+    show: false
   },
   onLoad(options) {
     const { bookId } = options
@@ -144,6 +145,16 @@ Page({
       file.url = res.fileID
       file.status = 'done'
       return Promise.resolve(file)
+    })
+  },
+  handleMusicClick(e) {
+    this.setData({
+      show: true
+    })
+  },
+  onClose(e) {
+    this.setData({
+      show: false
     })
   }
 })

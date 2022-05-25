@@ -4,7 +4,6 @@
     "yc-tab": "/components/tab/index",
     "yc-login-bar": "/components/login-bar/index",
     "yc-user-list": "/components/user-list/index",
-    "yc-center-image": "/components/center-image/index",
     "yc-alumni": "/components/alumni/index"
   },
   "enablePullDownRefresh": true

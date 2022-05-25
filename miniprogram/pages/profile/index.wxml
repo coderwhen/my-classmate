@@ -31,14 +31,14 @@
   <van-cell is-link size="large" title="关于我们" />
   <van-cell is-link size="large" title="关于我们" />
 </van-cell-group>
-<van-collapse accordion value="1" title="asdasd">
-  <van-collapse-item title="标题1" name="1">
+<van-collapse title="关于" value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item size="large" title="标题1" name="1">
     代码是写出来给人看的，附带能在机器上运行
   </van-collapse-item>
-  <van-collapse-item title="标题2" name="2">
+  <van-collapse-item size="large" title="标题2" name="2">
     代码是写出来给人看的，附带能在机器上运行
   </van-collapse-item>
-  <van-collapse-item title="标题3" name="3">
+  <van-collapse-item size="large" title="标题3" name="3">
     代码是写出来给人看的，附带能在机器上运行
   </van-collapse-item>
 </van-collapse>

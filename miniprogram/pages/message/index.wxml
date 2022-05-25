@@ -7,7 +7,9 @@
 <swiper class="swiper {{ isLogin ? 'login':'' }}" duration="{{ 300 }}" current="{{ tabActiveIndex }}" bindchange="handleSwiperChange">
     <swiper-item>
         <block wx:if="{{ !isLogin }}">
-            <yc-center-image />
+          <van-empty description="还没登录哟，快去登录吧！">
+            <van-button bind:click="handleToLogin" type="primary" round size="small">去登陆</van-button>
+          </van-empty>
         </block>
         <block wx:else>
             <yc-user-list />
@@ -15,7 +17,9 @@
     </swiper-item>
     <swiper-item>
         <block wx:if="{{ !isLogin }}">
-            <yc-center-image />
+          <van-empty description="还没登录哟，快去登录吧！">
+            <van-button bind:click="handleToLogin" type="primary" round size="small">去登陆</van-button>
+          </van-empty>
         </block>
         <block wx:else>
             <yc-user-list />

@@ -14,7 +14,9 @@ App({
     } else {
       wx.cloud.init({
         traceUser: true,
+        env: wx.cloud.DYNAMIC_CURRENT_ENV
       })
+      console.log('init cloud')
     }
 
     const userInfo = wx.getStorageSync('_userInfo')

@@ -73,21 +73,21 @@ Page({
         mask: true
       })
       
-      const upload = await wx.cloud.uploadFile({
-        cloudPath: 'cover/' + getGuid() + '.png',
-        filePath: this.data.coverImageUrl
-      })
+      if (this.data.coverImageUrl.length > 0) {
+        const upload = await wx.cloud.uploadFile({
+          cloudPath: 'cover/' + getGuid() + '.png',
+          filePath: this.data.coverImageUrl
+        })
+        classmate.cover = upload.fileID
+      }
 
 
-      classmate.cover = upload.fileID
-
-      const res = await addClassMate(classmate)
-      
+      const { result: { _id } } = await addClassMate(classmate)
       wx.showLoading({
         title: '上传封面中',
         mask: true
       })
-     
+
 
       wx.showLoading({
         title: '创建成功',
@@ -97,18 +97,18 @@ Page({
       setTimeout(() => {
         // wx.hideLoading()
         wx.redirectTo({
-          url: '/pages/invitation/index',
+          url: '/pages/invitation/index?scene='.concat(_id),
         })
       }, 2000)
 
-    } catch(e) {
+    } catch (e) {
       console.log(e)
       wx.hideLoading()
       wx.showToast({
         title: '发生错误了',
       })
-    } 
-   
+    }
+
 
     this.isUpload = false
   }

@@ -63,9 +63,6 @@ page {
 
 
 /* 搜索联想 */
-.search-tips {
-  padding: 15px;
-}
 
 .search-tips .item {
   display: flex;
@@ -130,4 +127,12 @@ page {
   width: 40rpx;
   height: 40rpx;
   margin: 5px;
+}
+
+.none {
+  display: none;
+}
+
+.custom-icon {
+  color: #0FCEED;
 }

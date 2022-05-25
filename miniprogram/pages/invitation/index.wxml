@@ -1,8 +1,8 @@
 <!--pages/invitation/index.wxml-->
-<van-skeleton title avatar row="3" loading="{{ loading }}">
+<van-skeleton wx:if="{{ loading }}" title avatar row="3" loading="{{ loading }}">
   <canvas hidden canvas-id="cav" style="width: 320px; height: 420px; margin: auto;"></canvas>
 </van-skeleton>
-<scroll-view class="invitation">
+<scroll-view wx:else class="invitation">
   <view class="cover">
     <image src="cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/yq.png" class="bg" />
     <view class="userinfo">

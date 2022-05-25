@@ -18,7 +18,7 @@
     "backgroundColor": "#ffffff",
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "我们的同学录",
+    "navigationBarTitleText": "我们的同学录-阿财包子铺",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -73,7 +73,8 @@
     "van-dropdown-item": "@vant/weapp/dropdown-item/index",
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
-    "van-calendar": "@vant/weapp/calendar/index"
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-loading": "@vant/weapp/loading/index"
   },
   "sitemapLocation": "sitemap.json"
 }

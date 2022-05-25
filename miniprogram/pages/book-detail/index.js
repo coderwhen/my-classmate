@@ -21,8 +21,9 @@ Page({
     bookList: [],
     query: {
       page: 0,
-      pageSize: 5
-    }
+      pageSize: 2
+    },
+    lower: true
   },
   onLoad(options) {
     console.log(options)
@@ -38,7 +39,8 @@ Page({
       console.log(res)
       this.setData({
         bookList: [...this.data.bookList, ...res.result.data],
-        ['query.page']: this.data.query.page + 1
+        ['query.page']: this.data.query.page + 1,
+        lower: false
       })
     }).catch(err => {
       console.log(err)
@@ -48,6 +50,10 @@ Page({
     console.log(e)
   },
   handleDownPage(e) {
+    this._getClassMateList()
+  },
+  handleToLower(e) {
+    if(this.data.lower) return
     this._getClassMateList()
   }
 })

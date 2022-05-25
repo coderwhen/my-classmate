@@ -21,7 +21,7 @@
   <swiper-item>
     <block wx:if="{{ !isLogin }}">
       <van-empty description="还没登录哟，快去登录吧！">
-        <van-button type="primary" round size="small">去登陆</van-button>
+        <van-button bind:click="handleToLogin" type="primary" round size="small">去登陆</van-button>
       </van-empty>
     </block>
     <block wx:elif="{{ joins.length === 0 }}">

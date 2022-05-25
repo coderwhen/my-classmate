@@ -6,13 +6,13 @@ page {
 
 .book-edit {
   position: fixed;
-  top: 15px;
+  top: 50px;
   right: 15px;
   left: 15px;
   background-color: rgba(255, 255, 255, .9);
   padding: 15px;
   min-height: 300px;
-  color: #884444;
+  color: #17adc4;
   transition: all .3s;
 }
 
@@ -25,7 +25,7 @@ page {
 
 .field .input {
   flex: 1;
-  border-bottom: 1px dashed #884444;
+  border-bottom: 1px dashed #0FCEED;
   padding: 5px 5px 2px;
   height: 20px;
   line-height: 20px;
@@ -40,4 +40,35 @@ page {
   padding: 15px;
   height: 74px;
   background-color: rgba(255, 255, 255, .9);
+}
+
+.music {
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  height: 30px;
+  width: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+  animation: t 5s linear infinite;
+}
+
+.music.play {
+  animation-play-state: running;
+}
+
+.music.paused {
+  animation-play-state: paused;
+}
+
+@keyframes t {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

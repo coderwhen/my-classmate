@@ -1,5 +1,5 @@
 <!--components/login-bar/index.wxml-->
 <view class="login-bar">
     <text>登录体验更多功能</text>
-    <van-button type="primary" size="mini">去登陆</van-button>
+    <van-button size="small" bind:click="handleToLogin" type="primary">去登陆</van-button>
 </view>

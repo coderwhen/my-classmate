@@ -1,8 +1,0 @@
-<!--components/center-image/index.wxml-->
-<view class="center-image">
-    <image class="image" mode="aspectFit" src="{{ imageUrl }}" />
-    <view>
-        <view class="t1">{{ title }}</view>
-        <view class="t2">{{ description }}</view>
-    </view>
-</view>

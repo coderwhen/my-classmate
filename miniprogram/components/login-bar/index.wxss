@@ -9,7 +9,7 @@
     padding: 0 15px;
     justify-content: space-between;
     height: 100rpx;
-    background: rgba(0, 0, 0, 0.11);
+    background: rgba(0, 0, 0, .2);
 }
 
 .login-bar text {

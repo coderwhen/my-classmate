@@ -34,7 +34,7 @@ page {
   /* top: 15px; */
   /* right: 15px; */
   /* left: 15px; */
-  background-color: rgba(255, 255, 255, 1);
+  background-color: #ffffff;
   padding: 31px 15px 5px 15px;
   min-height: 300px;
   color: #884444;
@@ -45,7 +45,7 @@ page {
 
 .book-edit.active {
   box-shadow: 0 0 4px rgba(0,0,0,.4);
-  background-color: rgba(255, 255, 255, .95);
+  /* background-color: rgba(255, 255, 255, .95); */
   transform: translate(0, -15px);
 }
 

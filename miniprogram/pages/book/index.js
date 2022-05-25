@@ -74,5 +74,10 @@ Page({
     this.setData({
       tabActiveIndex: 0
     })
+  },
+  handleToLogin(e) {
+    wx.navigateTo({
+      url: '/pages/login/index',
+    })
   }
 })

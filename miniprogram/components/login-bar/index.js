@@ -18,6 +18,10 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+      handleToLogin(e) {
+        wx.navigateTo({
+          url: '/pages/login/index',
+        })
+      }
     }
 })

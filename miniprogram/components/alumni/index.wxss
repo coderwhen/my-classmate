@@ -8,8 +8,10 @@
 
 .cover {
   width: 200rpx;
-  height: 270rpx;
+  height: 250rpx;
   background-color: #f8f8f8;
+  border-radius: 7px;
+  overflow: hidden;
 }
 
 .r {
@@ -22,9 +24,9 @@
 
 .title {
   font-weight: 700;
-  height: 74rpx;
-  font-size: 52rpx;
-  line-height: 74rpx;
+  height: 60rpx;
+  font-size: 50rpx;
+  line-height: 60rpx;
   color: #000000;
   opacity: 1;
 }
@@ -39,7 +41,7 @@
 }
 
 .description text {
-  padding: 5px 15px;
+  padding: 5px 7.5px;
   background-color: #f8f8f8;
 }
 
@@ -55,4 +57,9 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.music {
+  display: flex;
+  align-items: center;
 }

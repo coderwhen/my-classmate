@@ -21,5 +21,10 @@ Page({
     wx.switchTab({
       url: '/pages/book/index',
     })
-  }
+  },
+  onChange(event) {
+    this.setData({
+      activeNames: event.detail,
+    });
+  },
 })

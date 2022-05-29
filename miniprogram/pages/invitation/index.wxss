@@ -1,10 +1,12 @@
 /* pages/invitation/index.wxss */
 page {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
 }
 
 .invitation {
+  position: relative;
   padding: 15px;
+  padding-top: 60px;
 }
 
 .cover {
@@ -105,4 +107,48 @@ page {
 .save-btn {
   margin-top: 15px;
   width: 100% !important;
+}
+
+.music {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  color: #0FCEED;
+  animation: t 5s linear infinite;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.music.play {
+  animation-play-state: running;
+}
+
+.music.paused {
+  animation-play-state: paused;
+}
+
+@keyframes t {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.custom-icon {
+  color: #0FCEED;
+}
+
+.canvas {
+  position: fixed;
+  left: -5000px;
+  top: -5000px;
+  visibility: hidden;
 }

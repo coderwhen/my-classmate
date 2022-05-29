@@ -1,47 +1,52 @@
 <!--index.wxml-->
 <scroll-view class="index" scroll-y>
   <!-- banner -->
-<view class="banner">
-  <swiper 
-    class="swiper" 
-    indicator-dots
-    indicator-active-color="#fff"
-    autoplay
-    circular
-  >
-    <block wx:for="{{ banners }}" wx:for-item="banner" wx:key="*this">
-      <swiper-item>
-        <image class="box" mode="aspectFill" src="/images/banner/b1.jpg"></image>
-      </swiper-item>
-    </block>
-  </swiper>
-</view>
+  <view class="banner">
+    <swiper class="swiper" indicator-dots indicator-active-color="#fff" autoplay circular>
+      <block wx:for="{{ banners }}" wx:for-item="banner" wx:key="id">
+        <swiper-item>
+          <image class="banner-img" data-banner="{{ banner }}" bind:tap="handleSwiperClick" mode="scaleToFill" src="{{ banner.url }}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
 
-<!-- notice -->
-<view class="notice">
-  <swiper
-    vertical
-    autoplay
-    circular
-  >
-    <block wx:for="notices" wx:for-item="notice" wx:key="*this">
-      <swiper-item>
-        <view class="notice-item">
-          <image src="/images/notice.png" class="icon"/>
-          <text class="type">重要通知</text>
-          <text class="content ellipsis">阿萨德很123123123快就按时带回家阿克苏和的控件按时活动空间啊哈是框架</text>
-          <image class="arrow" src="/images/arrow.svg"></image>
-        </view>
-      </swiper-item>
-    </block>
-  </swiper>
-</view>
+  <!-- notice -->
+  <view hidden class="notice">
+    <swiper vertical autoplay circular>
+      <block wx:for="notices" wx:for-item="notice" wx:key="*this">
+        <swiper-item>
+          <view class="notice-item">
+            <image src="/images/notice.png" class="icon" />
+            <text class="type">重要通知</text>
+            <text class="content ellipsis">阿萨德很123123123快就按时带回家阿克苏和的控件按时活动空间啊哈是框架</text>
+            <image class="arrow" src="/images/arrow.svg"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <van-notice-bar
+    color="#1989fa"
+    background="#ecf9ff"
+    left-icon="info-o"
+    text="欢迎使用我们的同学录"
+  />
 
-<!-- discover -->
-<view class="discover">
-  <!-- <view class="title">发现</view> -->
-  <!-- <image mode="widthFix" style="width: 100%;" src="cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/9788e6ec530a20c502bd26c7e83dc33c.gif"></image> -->
-  <image mode="aspectFill" style="width: 100%;" src="/images/d021eca5e55d4710caebaa1624a81bee@2x.png"></image>
-  <button type="primary" class="trybtn" bindtap="handleTryBtnClick">去试试</button>
-</view>
+  <!-- discover -->
+  <view hidden class="discover">
+    <!-- <view class="title">发现</view> -->
+    <image mode="widthFix" class="biye-img" src="cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/c4a682a5151a8daa4b4ff9423350d1b.png"/>
+  </view>
+  <view class="discover">
+    <!-- <view class="title">发现</view> -->
+    <image mode="widthFix" bind:load="handleImageLoad" class="preview-img" src="cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/dfa2d91970dc7204dd53bb2fcd161f0.jpg"/>
+    <van-button wx:if="{{ discover }}" bind:click="handleLook" class="preview-btn" block type="primary">去试试</van-button>
+  </view>
+  <van-divider
+    dashed
+    customStyle="color: #1989fa; border-color: #1989fa; font-size: 18px; padding: 0 15px;"
+    contentPosition="center">
+    我也是有底线的
+  </van-divider>
 </scroll-view>

@@ -12,14 +12,14 @@
   padding: 15px;
 }
 
-.swiper .box {
+.swiper .banner-img {
   width: 100%;
   color: #ffffff;
   text-align: center;
   height: 260rpx;
   line-height: 260rpx;
-  background-color: aqua;
-  border-radius: 30rpx;
+  background-color: #eeeeee;
+  /* border-radius: 30rpx; */
 }
 
 .notice {
@@ -67,8 +67,9 @@
 }
 
 .discover {
-  padding: 0 15px;
+  padding: 15px;
   position: relative;
+  text-align: center;
 }
 
 .discover .title {
@@ -77,11 +78,22 @@
   line-height: 40px;
 }
 
-.discover .trybtn {
+.discover .biye-img {
+  width: 690rpx;
+  background-color: #eeeeee;
+}
+
+.discover .preview-img {
+  width: 690rpx;
+  height: 1200rpx;
+  background-color: #eeeeee;
+}
+
+.discover .preview-btn {
   position: absolute;
   left: 50%;
-  bottom: 30px;
-  margin-left: -90px;
+  bottom: 450rpx;
   opacity: .9;
-  /* background-color: rgb; */
+  transform: translate(-50%, 0);
+  width: 40%;
 }

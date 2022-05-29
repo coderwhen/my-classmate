@@ -38,21 +38,25 @@
           "scene": null
         },
         {
-          "name": "测试页面",
-          "pathName": "pages/test/index",
+          "name": "创建",
+          "pathName": "pages/book-save/index",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
-          "name": "webview",
-          "pathName": "pages/webview/index",
-          "query": "url=https://mp.weixin.qq.com/s?__biz=Mzg4MzcxODQ2Mw==&mid=2247483653&idx=1&sn=2fb8353042076169251dd5a8b4a93043&chksm=cf426155f835e843a5ef7e032cb0cda4561f77f85163ebd959544b30ddca6040544c05b86b33#rd",
+          "name": "test",
+          "pathName": "pages/test/index",
+          "query": "scene=0ab5303b626a970a00abd9b65e749f14",
           "launchMode": "default",
           "scene": null
         }
       ]
     }
   },
-  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "libVersion": "2.14.1",
+  "setting": {
+    "urlCheck": false
+  }
 }

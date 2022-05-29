@@ -1,7 +1,7 @@
 <!--pages/book-detail/index.wxml-->
 <wxs module="tools" src="../../utils/index.wxs"></wxs>
 
-<view class="header">
+<view class="header" hidden="{{ true }}">
   <van-search value="{{ keyword }}" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange" bind:search="onSearch">
     <view slot="action" bind:tap="onClick">搜索</view>
   </van-search>
@@ -33,12 +33,22 @@
           <text class="input">{{ item.fields.phone }}</text>
         </view>
         <view class="field">
-          <text>你的梦想：</text>
-          <text class="input">{{ item.fields.feed }}</text>
+          <text>Ta的梦想：</text>
+          <view class="input">
+            <block wx:if="{{ item.fields.feed.length >= 15 }}">
+              <van-button data-msg="{{ item.fields.feed }}" data-title="Ta的梦想" bind:click="handleShowMoreMessage" size="small" type="primary">查看梦想</van-button>
+            </block>
+            <text wx:else>{{ item.fields.feed }}</text>
+          </view>
         </view>
         <view class="field">
-          <text>你的哈哈：</text>
-          <text class="input">{{ item.fields.commit }}</text>
+          <text>Ta对我说的话：</text>
+          <view class="input">
+            <block wx:if="{{ item.fields.commit.length >= 15 }}">
+              <van-button data-msg="{{ item.fields.commit }}" data-title="Ta对我说的话" bind:click="handleShowMoreMessage" size="small" type="primary">查看对我的话</van-button>
+            </block>
+            <text wx:else>{{ item.fields.commit }}</text>
+          </view>
         </view>
         <view class="field">
           <text>那些图片儿：</text>
@@ -50,7 +60,14 @@
         </view>
       </view>
     </block>
-    <van-loading type="spinner" color="#1989fa" />
+    <view class="b-bottom">
+      <van-loading wx:if="{{ loading }}" color="#1989fa">加载中...</van-loading>
+      <text hidden="{{ !nohave }}">--我是个有底线的人--</text>
+    </view>
   </block>
-  <van-empty wx:else description="描述文字" />
+  <van-empty wx:else description="您的同学录还没人填写！">
+    <van-button bind:click="handleToShare" type="primary" size="small" round>去分享</van-button>
+  </van-empty>
 </scroll-view>
+<van-dialog title="{{ dialog.title }}" show="{{ dialog.show }}" message="{{ dialog.message }}" bind:close="handleHideDialog" closeOnClickOverlay>
+</van-dialog>

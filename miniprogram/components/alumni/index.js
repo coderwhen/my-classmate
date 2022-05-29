@@ -18,6 +18,11 @@ Component({
      * 组件的方法列表
      */
     methods: {
+      handleEditClick(e) {
+        wx.navigateTo({
+          url: '/pages/book-save/index?bookId='.concat(this.data.classMate._id),
+        })
+      },
       handleShareClick(e) {
         wx.navigateTo({
           url: '/pages/invitation/index?scene='.concat(this.data.classMate._id),
@@ -31,7 +36,7 @@ Component({
       handleCoverError(e) {
         console.log(e)
         this.setData({
-          [`classMate.cover`]: 'cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/cover/0ab5303b626a970a00abd9b65e749f14.png'
+          [`classMate.cover.url`]: 'cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/cover/0ab5303b626a970a00abd9b65e749f14.png'
         })
       }
     }

@@ -1,27 +1,85 @@
 // pages/test/index.js
 const {
-  getClassMateCode
+  getMusicUrl
 } = require('../../api/index')
 
+
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    imgUrl: ''
+    src: ''
   },
-  onDownloadMiniCode(e) {
-    console.log(e)
-    getClassMateCode().then(res => {
-      console.log(res)
-      const imgUrl = 'data:image/png;base64,' + wx.arrayBufferToBase64(res.result.buffer.data)
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+    const music = wx.createInnerAudioContext()
+    this.musicAud = wx.createAudioContext('audio')
+    getMusicUrl({
+      id: '25638340'
+    }).then(res => {
+      const src = res.result.body.data[0].url
       this.setData({
-        imgUrl
+        src
+      }, _ => {
+        music.src = src
+        music.play()
+        // this.musicAud.play()
+        // console.log('play')
       })
-    }).catch(err => {
-      console.log(err)
     })
   },
-  handleToWebView(e) {
-    wx.navigateTo({
-      url: '/pages/webview/index?url='.concat('https://mp.weixin.qq.com/s/CbViWzu8Bl26yMm8WDUSaQ'),
-    })
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+
   }
 })

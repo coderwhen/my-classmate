@@ -1,6 +1,7 @@
 <!--pages/invitation/index.wxml-->
+<page-meta page-style="{{ loading ? 'background-color: #fff;': '' }}"/>
 <van-skeleton wx:if="{{ loading }}" title avatar row="3" loading="{{ loading }}">
-  <canvas hidden canvas-id="cav" style="width: 320px; height: 420px; margin: auto;"></canvas>
+  
 </van-skeleton>
 <scroll-view wx:else class="invitation">
   <view class="cover">
@@ -13,7 +14,7 @@
   </view>
   <view class="ercode">
     <text>长按识别二维码</text>
-    <image src="{{ code ? 'data:image/png;base64,' + code : '/images/ercode.png' }}" />
+    <image src="{{ code }}" />
   </view>
   <view class="action">
     <block wx:if="{{ !self }}">
@@ -21,8 +22,45 @@
       <van-button custom-class="btn" block bind:click="handleLookLook">再看看</van-button>
     </block>
     <block wx:else>
+      <van-row gutter="10">
+        <van-col span="12">
+          <van-button custom-class="btn" open-type="share" block>发给朋友</van-button>
+        </van-col>
+        <van-col span="12">
+          <van-button custom-class="btn" bind:click="handleFirQ" block>发朋友圈</van-button>
+        </van-col>
+      </van-row>
       <van-button custom-class="btn" bind:click="onSaveImage" type="primary" block>保存图片</van-button>
-      <van-button custom-class="btn" open-type="share" block>发给朋友</van-button>
     </block>
   </view>
 </scroll-view>
+<view hidden="{{ loading }}" class="music {{ play ?  'play' : 'paused' }}" bind:tap="onOpen">
+  <van-icon size="30px" name="music" style="margin: auto;"></van-icon>
+</view>
+
+<van-popup
+  show="{{ show }}"
+  round
+  position="bottom"
+  custom-style="height: 45%"
+  bind:close="onClose"
+>
+  <van-group>
+    <block wx:if="{{ musicList.length > 0 }}">
+      <block wx:for="{{ musicList }}" wx:key="id">
+        <van-cell 
+          center 
+          title="{{ item.name }}" 
+          size="large"
+          label="{{ (item.artists[0] ? item.artists[0].name : '') + ' ' + (item.alias[0] ? item.alias[0] : '') }}">
+          <view slot="right-icon">
+            <van-icon size="30px" wx:if="{{ item.id !== playList[currentMusic].id }}" bind:click="handleMusicClick" name="play-circle" data-song="{{ item }}" class="custom-icon" />
+            <van-icon size="30px" bind:click="handleMusicPause" wx:else name="pause-circle" class="custom-icon" />
+          </view>
+        </van-cell>
+      </block>
+    </block>
+    <van-empty wx:else description="还没有选择音乐" />
+  </van-group>
+</van-popup>
+<canvas class="canvas" canvas-id="cav" style="width: 345px; height: 440px; margin: auto;"></canvas>

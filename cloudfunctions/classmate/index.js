@@ -25,6 +25,8 @@ exports.main = async (event, context) => {
       return musicUrl.main(event, context)
     case "book-save":
       return bookSave.main(event, context)
+    case "book-save-get":
+      return bookSave.get(event, context)
     case "book-code":
       return bookCode.main(event, context)
     case "book-get":

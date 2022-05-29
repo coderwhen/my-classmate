@@ -11,11 +11,12 @@
         </block>
         <block wx:else>
             <text>{{ userInfo.nickName }}</text>
-            <button size="mini">更新头像</button>
+            <text>欢迎使用此小程序</text>
+            <!-- <button size="mini">更新头像</button> -->
         </block>
     </view>
 </view>
-<view class="my-info">
+<view hidden class="my-info">
     <view class="item" bindtap="handleMyBookClick">
         <text class="count">1</text>
         <text>我的同学录</text>
@@ -31,7 +32,7 @@
   <van-cell is-link size="large" title="关于我们" />
   <van-cell is-link size="large" title="关于我们" />
 </van-cell-group>
-<van-collapse title="关于" value="{{ activeNames }}" bind:change="onChange">
+<van-collapse border="{{ false }}" value="{{ activeNames }}" bind:change="onChange">
   <van-collapse-item size="large" title="标题1" name="1">
     代码是写出来给人看的，附带能在机器上运行
   </van-collapse-item>

@@ -5,23 +5,24 @@ const {
 } = require('../../api/index')
 Page({
   data: {
-    // tabs数据
-    tabs: ['我的同学录', '我参加的'],
-    tabActiveIndex: 0,
     alumniBooks: [],
-    joins: [],
+    loading: false,
+    error: false,
     isLogin: false
   },
   onShow(e) {
     const data = {}
-    if (app.globalData._tabPage.book != this.data.tabActiveIndex) {
-      data.tabActiveIndex = app.globalData._tabPage.book
-    }
+    // if (app.globalData._tabPage.book != this.data.tabActiveIndex) {
+    //   data.tabActiveIndex = app.globalData._tabPage.book
+    // }
     this.setData({
-      ...data,
+      // ...data,
       isLogin: app.globalData.isLogin
     })
     if (app.globalData.isLogin) {
+      // wx.showLoading({
+      //   title: '加载中',
+      // })
       getClassMate().then(res => {
         console.log(res)
         this.setData({
@@ -29,6 +30,8 @@ Page({
         })
       }).catch(err => {
         console.log(err)
+      }).finally(_ => {
+        // wx.hideLoading()
       })
     }
   },
@@ -51,6 +54,15 @@ Page({
     })
   },
   handleCreateBook(e) {
+    const { alumniBooks } = this.data
+    if(alumniBooks.length >= 3) {
+      wx.showToast({
+        title: '您最多只能创建3个同学录哟！',
+        icon: 'none',
+        duration: 1500
+      })
+      return
+    }
     wx.requestSubscribeMessage({
       tmplIds: ['6CVbCY1SRcVuhvsCTtPzBcmUXFsZWv0HS2b4tRdlJ4U'],
     }).then(res => {

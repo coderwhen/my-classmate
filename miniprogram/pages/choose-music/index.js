@@ -31,6 +31,15 @@ Page({
   },
   onLoad() {
     const historyList = wx.getStorageSync('_historyList')
+    const pages = getCurrentPages()
+    const prev = pages[pages.length - 2]
+    console.log(prev)
+    const musicList = prev.data.musicList
+    if(musicList) {
+      this.setData({
+        musicList
+      })
+    }
     if(historyList) {
       this.setData({
         historyList
@@ -72,10 +81,16 @@ Page({
   },
   handleConfirm() {
     const keywords = this.data.keywords
+    const {historyList} = this.data
+    const history = historyList.findIndex(item => item === keywords)
+    if(history === -1) {
+      historyList.push(keywords)
+    }
     this.setData({
       current: 2,
       searchLoading: true,
-      keywords
+      keywords,
+      historyList
     })
     getMusicSearch({
       keywords
@@ -94,12 +109,16 @@ Page({
   },
   handleTipsClick(e) {
     const keywords = e.currentTarget.dataset.tip.keyword
-    this.data.historyList.push(keywords)
+    const {historyList} = this.data
+    const history = historyList.findIndex(item => item === keywords)
+    if(history === -1) {
+      historyList.push(keywords)
+    }
     this.setData({
       current: 2,
       searchLoading: true,
       keywords,
-      historyList: this.data.historyList
+      historyList
     })
     getMusicSearch({
       keywords
@@ -131,9 +150,18 @@ Page({
     })
   },
   handleMusicClick(e) {
-    console.log(e)
+    const { playList } = this.data
     const music = e.target.dataset.song
     const id = music.id
+    const musicItem = playList.findIndex(item => item.id === music.id)
+    if(musicItem > -1) {
+      this.setData({
+        currentMusic: musicItem
+      }, () => {
+        this.musicAud.play()
+      })
+      return
+    }
     getMusicUrl({
       id
     }).then(res => {
@@ -148,7 +176,7 @@ Page({
     })
   },
   handleDeleteMusic(e) {
-    const music = e.detail
+    const music = e.target.dataset.song
     const musicList = this.data.musicList
     const deleteIndex = musicList.findIndex(item => music.id === item.id)
     if(deleteIndex === -1) return

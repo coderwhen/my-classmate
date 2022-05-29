@@ -23,7 +23,14 @@ Page({
       page: 0,
       pageSize: 2
     },
-    lower: true
+    loading: false,
+    nohave: false,
+    lower: true,
+    dialog: {
+      show: false,
+      title: '',
+      message: ''
+    }
   },
   onLoad(options) {
     console.log(options)
@@ -37,10 +44,13 @@ Page({
       query
     }).then(res => {
       console.log(res)
+      const data = res.result.data
       this.setData({
         bookList: [...this.data.bookList, ...res.result.data],
         ['query.page']: this.data.query.page + 1,
-        lower: false
+        lower: false,
+        nohave: data.length === 0,
+        loading: false
       })
     }).catch(err => {
       console.log(err)
@@ -53,7 +63,34 @@ Page({
     this._getClassMateList()
   },
   handleToLower(e) {
-    if(this.data.lower) return
+    // 碰到底正在请求数据
+    if (this.data.lower) return
+    // 没有更多了
+    if (this.data.nohave) return
+    this.setData({
+      loading: true
+    })
     this._getClassMateList()
+  },
+  handleToShare(e) {
+    wx.navigateTo({
+      url: '/pages/invitation/index?scene='.concat(this.options.bookId),
+    })
+  },
+  handleShowMoreMessage(e) {
+    console.log(e)
+    const { msg, title } = e.target.dataset
+    this.setData({
+      dialog: {
+        show: true,
+        title,
+        message: msg
+      }
+    })
+  },
+  handleHideDialog(e) {
+    this.setData({
+      ['dialog.show']: false
+    })
   }
 })

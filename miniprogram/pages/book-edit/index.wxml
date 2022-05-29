@@ -5,7 +5,7 @@
     <van-col span="12">
       <view class="field">
       <text>姓名：</text>
-      <input class="input" value="{{ fields.name }}" data-field="name" bind:input="onInput" placeholder="你的名字"/>
+      <input class="input" maxlength="5" value="{{ fields.name }}" data-field="name" bind:input="onInput" placeholder="你的名字"/>
     </view>
     </van-col>
     <van-col span="12">
@@ -23,11 +23,11 @@
   </view>
   <view class="field">
     <text>你的梦想：</text>
-    <input class="input" value="{{ fields.feed }}" data-field="feed" bind:input="onInput" placeholder="你的梦想"/>
+    <input class="input" maxlength="150" value="{{ fields.feed }}" data-field="feed" bind:input="onInput" placeholder="你的梦想"/>
   </view>
   <view class="field">
-    <text>你的哈哈：</text>
-    <input class="input" value="{{ fields.commit }}" data-field="commit" bind:input="onInput" placeholder="预留字段"/>
+    <text>对我说的话：</text>
+    <input class="input" maxlength="150" value="{{ fields.commit }}" data-field="commit" bind:input="onInput" placeholder="预留字段"/>
   </view>
   <view class="field">
     <text>那些图片儿：</text>
@@ -44,7 +44,7 @@
 <view class="fixed" hidden="{{ loading }}">
   <van-button type="primary" bind:click="handleEditSuccess" block>填写完成</van-button>
 </view>
-<view class="music" bind:tap="handleMusicClick">1</view>
+<!-- <view class="music" bind:tap="handleMusicClick">1</view>
 <van-popup
   show="{{ show }}"
   round
@@ -53,4 +53,4 @@
   bind:close="onClose"
 >
   adasd
-</van-popup>
+</van-popup> -->

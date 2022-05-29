@@ -11,7 +11,6 @@ exports.main = async (event, context) => {
     page = 0,
     pageSize = 5
   } = query
-  const classMateList = db.collection('yc_classmate_list')
   return await
     db.collection('yc_classmate_list').where({
       classmateid: bookId

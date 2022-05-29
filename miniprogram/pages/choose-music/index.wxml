@@ -22,7 +22,7 @@
 <!-- 搜索关键词联想 -->
 <view wx:elif="{{ current === 1 && keywords.length > 0 }}" class="search-tips">
   <van-gorup>
-    <block wx:for="{{ suggests }}">
+    <block wx:for="{{ suggests }}" wx:key="index">
       <van-cell bind:click="handleTipsClick" title="{{ item.keyword }}" data-tip="{{ item }}" icon="search" />
     </block>
   </van-gorup>
@@ -41,7 +41,8 @@
         label="{{ (item.artists[0] ? item.artists[0].name : '') + ' ' + (item.alias[0] ? item.alias[0] : '') }}">
         <view slot="right-icon">
           <van-icon size="30px" bind:click="handleJoin" name="add" data-song="{{ item }}" class="custom-icon" />
-          <van-icon size="30px" bind:click="handleMusicClick" name="play-circle" data-song="{{ item }}" class="custom-icon" />
+          <van-icon size="30px" wx:if="{{ item.id !== playList[currentMusic].id }}" bind:click="handleMusicClick" name="play-circle" data-song="{{ item }}" class="custom-icon" />
+          <van-icon size="30px" bind:click="handleMusicPause" wx:else name="pause-circle" class="custom-icon" />
         </view>
       </van-cell>
     </block>
@@ -72,19 +73,22 @@
   bind:close="onClose"
 >
   <van-group>
-    <block wx:for="{{ musicList }}" wx:key="id">
-      <van-cell 
-        center 
-        title="{{ item.name }}" 
-        size="large"
-        label="{{ (item.artists[0] ? item.artists[0].name : '') + ' ' + (item.alias[0] ? item.alias[0] : '') }}">
-        <view slot="right-icon">
-          <van-icon size="30px" bind:click="handleJoin" name="clear" data-song="{{ item }}" class="custom-icon" />
-          <van-icon size="30px" wx:if="{{ item.id !== playList[currentMusic].id }}" bind:click="handleMusicClick" name="play-circle" data-song="{{ item }}" class="custom-icon" />
-          <van-icon size="30px" bind:click="handleMusicPause" wx:else name="pause-circle" class="custom-icon" />
-        </view>
-      </van-cell>
+    <block wx:if="{{ musicList.length > 0 }}">
+      <block wx:for="{{ musicList }}" wx:key="id">
+        <van-cell 
+          center 
+          title="{{ item.name }}" 
+          size="large"
+          label="{{ (item.artists[0] ? item.artists[0].name : '') + ' ' + (item.alias[0] ? item.alias[0] : '') }}">
+          <view slot="right-icon">
+            <van-icon size="30px" bind:click="handleDeleteMusic" name="clear" data-song="{{ item }}" class="custom-icon" />
+            <van-icon size="30px" wx:if="{{ item.id !== playList[currentMusic].id }}" bind:click="handleMusicClick" name="play-circle" data-song="{{ item }}" class="custom-icon" />
+            <van-icon size="30px" bind:click="handleMusicPause" wx:else name="pause-circle" class="custom-icon" />
+          </view>
+        </van-cell>
+      </block>
     </block>
+    <van-empty wx:else description="还没有选择音乐" />
   </van-group>
 </van-popup>
 <audio hidden="{{ true }}" bindended="handleMusicEnd" id="audio" src="{{ playList[currentMusic].url }}" controls></audio>

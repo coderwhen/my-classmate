@@ -20,6 +20,7 @@ exports.main = async (event, context) => {
         as: 'users',
       })
       .end()
+    console.log(classMate)
     const { users: [userInfo] } = classMate
     console.log(userInfo._openid, wxContext.OPENID)
     return {
@@ -27,7 +28,8 @@ exports.main = async (event, context) => {
         userInfo._openid === wxContext.OPENID:
         false
       ,
-      userInfo
+      userInfo,
+      musicList: classMate.musicList
     }
   } catch (e) {
     cloud.logger(e)

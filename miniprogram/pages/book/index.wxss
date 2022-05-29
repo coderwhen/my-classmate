@@ -1,4 +1,8 @@
 /* pages/book/index.wxss */
+page {
+  /* background-color: #ffffff; */
+}
+
 .swiper {
     position: relative;
     height: calc(100vh - 100rpx - 120rpx);
@@ -41,6 +45,41 @@
     border-radius: 7.5rpx;
     background-color: #ffffff;
     transform: translate(-50%,-50%) rotate(90deg);
+}
+
+.create-btn {
+  position: fixed;
+  right: 50rpx;
+  bottom: 50rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #0FCEED;
+  border-radius: 50%;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, .4);
+}
+
+.create-btn:before {
+  content: '';
+  position: absolute;
+  height: 60rpx;
+  width: 15rpx;
+  left: 50%;
+  top: 50%;
+  border-radius: 7.5rpx;
+  background-color: #ffffff;
+  transform: translate(-50%,-50%);
+}
+
+.create-btn:after {
+  content: '';
+  position: absolute;
+  height: 60rpx;
+  width: 15rpx;
+  left: 50%;
+  top: 50%;
+  border-radius: 7.5rpx;
+  background-color: #ffffff;
+  transform: translate(-50%,-50%) rotate(90deg);
 }
 
 .custom-class {

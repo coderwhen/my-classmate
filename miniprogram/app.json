@@ -8,11 +8,10 @@
     "pages/choose-music/index",
     "pages/invitation/index",
     "pages/book-save/index",
-    "pages/test/index",
     "pages/book-detail/index",
     "pages/book-edit/index",
-    "pages/webview/index",
-    "pages/book-success/index"
+    "pages/book-success/index",
+    "pages/test/index"
   ],
   "window": {
     "backgroundColor": "#ffffff",
@@ -35,12 +34,6 @@
         "text": "同学录",
         "iconPath": "images/tabbar/book.png",
         "selectedIconPath": "images/tabbar/book-active.png"
-      },
-      {
-        "pagePath": "pages/message/index",
-        "text": "消息",
-        "iconPath": "images/tabbar/message.png",
-        "selectedIconPath": "images/tabbar/message-active.png"
       },
       {
         "pagePath": "pages/profile/index",
@@ -74,7 +67,11 @@
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
     "van-calendar": "@vant/weapp/calendar/index",
-    "van-loading": "@vant/weapp/loading/index"
+    "van-loading": "@vant/weapp/loading/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-divider": "@vant/weapp/divider/index"
   },
   "sitemapLocation": "sitemap.json"
 }

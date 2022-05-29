@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "yc-music-list": "/components/music-list/index"
-  }
+  },
+  "navigationBarTitleText": "同学录"
 }

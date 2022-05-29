@@ -78,14 +78,24 @@ Page({
   },
   handleDate(e) {
     const { value } = e.detail
+    // console.log(value)
+    const chooseTime = new Date(value)
+    if(this.data.now - chooseTime.getTime() < 0) {
+      wx.showToast({
+        title: '你还没出生呢',
+        icon: 'error'
+      })
+      this.setData({
+        [`fields.bir`]: this.data.fields.bir
+      })
+      return
+    }
     this.setData({
       [`fields.bir`]: value
     })
   },
   handleImageDelete(e) {
-    console.log(e)
     const index = e.detail.index
-    console.log(index)
     const { fileList } = this.data
     this.setData({
       fileList: 
@@ -93,13 +103,44 @@ Page({
     })
   },
   handleEditSuccess(e) {
+    const { fields, fileList } = this.data
+    const up = fileList.filter(file => file.status !== 'done')
+    if(up.length > 0) {
+      return wx.showToast({
+        title: '请等待图片上传完成',
+        icon: 'error',
+        duration: 1000
+      })
+    }
+    if(fields.name.length === 0) {
+      return wx.showToast({
+        title: '您还没填写姓名',
+        icon: 'error',
+        duration: 1000
+      })
+    }
+    if(fields.bir.length === 0) {
+      return wx.showToast({
+        title: '您还没填写生日',
+        icon: 'error',
+        duration: 1000
+      })
+    }
+
+    if(fields.phone.length === 0) {
+      return wx.showToast({
+        title: '您还没填写手机',
+        icon: 'error',
+        duration: 1000
+      })
+    }
+    
     wx.showLoading({
       title: '留言中',
       mask: true
     })
 
     const { bookId, bookListId } = this.options
-    const { fields, fileList } = this.data
     const payload = {
       bookId,
       bookListId,

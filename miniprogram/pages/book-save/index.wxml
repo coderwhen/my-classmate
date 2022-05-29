@@ -1,37 +1,63 @@
 <!--pages/book-save/index.wxml-->
+<van-skeleton wx:if="{{ loading }}" title row="3" />
 <scroll-view
     class="book-save"
     scroll-y
+    wx:else
 >
     <view class="cover">
         <view class="cover-box" bindtap="handleChooseImage">
-          <block wx:if="{{ coverImageUrl.length === 0 }}">
+          <block wx:if="{{ cover.url.length === 0 }}">
             <image style="width: 100rpx; height: 70rpx;" src="/images/zhao.png" mode="aspectFit"/>
             <text>添加封面</text>
           </block>
           <block wx:else>
-            <image src="{{ coverImageUrl }}" mode="aspectFill" style="width: 100%; height : 100%;"/>
+            <image src="{{ cover.url }}" mode="aspectFill" style="width: 100%; height : 100%;"/>
           </block>
         </view>
         <text>（如果不添加，系统会自动生成封面）</text>
     </view>
     <view class="title-wrap">
         <view class="title">点击输入同学录标题</view>
-        <input maxlength="10" bindinput="handleTitleInput" placeholder="同学录标题"/>
+        <input maxlength="10" value="{{ title }}" bindinput="handleTitleInput" placeholder="同学录标题"/>
     </view>
     <view class="description-wrap">
         <view class="title">点击输入同学录备注</view>
-        <textarea maxlength="{{ 50 }}" placeholder="同学录备注" bindinput="handleDescriptionInput"></textarea>
+        <textarea maxlength="{{ 50 }}" value="{{ description }}" placeholder="同学录备注" bindinput="handleDescriptionInput"></textarea>
         <text>{{ description.length }}/50</text>
     </view>
     <view class="add-music">
-        <view class="btn" hover-class="hover" bindtap="handleChooseMusic">
-            <text>添加音乐</text>
-            <text>图标</text>
+      <van-cell title="选取音乐" size="large" bind:click="handleChooseMusic" is-link />
+      <van-cell size="large" bind:click="handleShowMusic" value="查看选取音乐" icon="service-o" is-link>
+        <view slot="title">
+          <van-tag type="primary">音乐</van-tag>
+          <text style="margin-left: 5px;" class="van-cell-text">已选取{{ musicList.length }}首音乐</text>
         </view>
-        <yc-music-list music-list="{{ musicList }}" icon-list="{{ [{icon: '/images/fx.png', event: 'play'}] }}"/>
+      </van-cell>
     </view>
     <view class="success">
       <van-button bind:click="handleSuccess" block type="primary">完成</van-button>
     </view>
 </scroll-view>
+
+<van-popup
+  show="{{ show }}"
+  round
+  position="bottom"
+  custom-style="height: 45%"
+  bind:close="handleHideMusic"
+>
+  <van-group>
+    <block wx:if="{{ musicList.length > 0 }}">
+      <block wx:for="{{ musicList }}" wx:key="id">
+        <van-cell 
+          center 
+          title="{{ item.name }}" 
+          size="large"
+          label="{{ (item.artists[0] ? item.artists[0].name : '') + ' ' + (item.alias[0] ? item.alias[0] : '') }}">
+        </van-cell>
+      </block>
+    </block>
+    <van-empty wx:else description="还没有选择音乐" />
+  </van-group>
+</van-popup>

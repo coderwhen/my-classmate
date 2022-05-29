@@ -1,7 +1,7 @@
 <!--components/alumni/index.wxml-->
 <view class="alumni" catch:tap="handleToDetail">
   <view class="cover">
-    <image binderror="handleCoverError" style="width: 100%; height: 100%;" mode="aspectFill" src="{{ classMate.cover }}"></image>
+    <image binderror="handleCoverError" style="width: 100%; height: 100%;" mode="aspectFill" src="{{ classMate.cover.url }}"></image>
   </view>
   <view class="r">
     <view class="title">{{classMate.title}}</view>
@@ -14,8 +14,8 @@
         <text>已选取{{ classMate.musicList.length }}首音乐</text>
       </view>
       <view class="btns">
-        <van-icon catchclick="handleShareClick" name="todo-list" size="25px"/>
-        <van-icon catchclick="handleShareClick" name="share" size="25px"/>
+        <van-icon catch:tap="handleEditClick" name="todo-list" size="25px"/>
+        <van-icon catch:tap="handleShareClick" name="share" size="25px"/>
       </view>
     </view>
   </view>

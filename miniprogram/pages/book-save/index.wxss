@@ -38,9 +38,9 @@ page {
 
 .cover text {
   height: 34rpx;
-  font-size: 24rpx;
+  font-size: 26rpx;
   line-height: 34rpx;
-  color: #000000;
+  color: #ec2121;
 }
 
 .title-wrap {
@@ -88,7 +88,7 @@ page {
 }
 
 .add-music {
-  padding: 0 15px;
+  /* padding: 0 15px; */
 }
 
 .add-music .btn {
@@ -106,4 +106,8 @@ page {
 
 .success {
   padding: 0 15px;
+}
+
+.custom-icon {
+  color: #0FCEED;
 }

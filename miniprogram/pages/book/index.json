@@ -1,10 +1,9 @@
 {
-  "navigationBarTitleText": "同学录",
+  "navigationBarTitleText": "我的同学录",
   "usingComponents": {
     "yc-tab": "/components/tab/index",
     "yc-login-bar": "/components/login-bar/index",
     "yc-user-list": "/components/user-list/index",
     "yc-alumni": "/components/alumni/index"
-  },
-  "enablePullDownRefresh": true
+  }
 }

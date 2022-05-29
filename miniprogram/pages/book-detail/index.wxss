@@ -15,18 +15,16 @@ page {
 
 .box {
   /* background-color: rgba(255,255,255, .9); */
-  padding: 104px 15px 0 15px;
+  /* padding: 104px 15px 0 15px; */
+  /* padding: 15px; */
   height: 100vh;
 }
 
-.box::after,.box::before {
+.box::after,
+.box::before {
   content: '';
   display: block;
   height: 0;
-}
-
-.box swiper {
-  min-height: 451px;
 }
 
 .book-edit {
@@ -37,16 +35,16 @@ page {
   background-color: #ffffff;
   padding: 31px 15px 5px 15px;
   min-height: 300px;
-  color: #884444;
+  color: #17adc4;
   transition: all .3s;
-  margin: 25px 0;
+  margin: 25px 15px;
   transform: translate(0, 0);
 }
 
 .book-edit.active {
-  box-shadow: 0 0 4px rgba(0,0,0,.4);
+  box-shadow: 4rpx 4rpx 8rpx rgba(0, 0, 0, .1);
   /* background-color: rgba(255, 255, 255, .95); */
-  transform: translate(0, -15px);
+  /* transform: translate(0, -15px); */
 }
 
 .field {
@@ -56,13 +54,24 @@ page {
   margin-bottom: 15px;
 }
 
+.field text:nth-child(1) {
+  min-width: 50px;
+}
+
 .field.time {
   font-size: 12px;
 }
 
 .field .input {
   flex: 1;
-  border-bottom: 1px dashed #884444;
+  border-bottom: 1px dashed #0FCEED;
   padding: 7px 5px 5px 5px;
   font-size: 14px;
+}
+
+.b-bottom {
+  height: 50px;
+  text-align: center;
+  padding: 10px 0;
+  color: #17adc4;
 }

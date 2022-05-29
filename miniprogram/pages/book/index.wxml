@@ -1,5 +1,5 @@
 <!--pages/book/index.wxml-->
-<yc-tab tabs="{{ tabs }}" currentIndex="{{ tabActiveIndex }}" bindchange="handleTabChange" />
+<!-- <yc-tab tabs="{{ tabs }}" currentIndex="{{ tabActiveIndex }}" bindchange="handleTabChange" />
 <swiper class="swiper {{ isLogin ? 'login' : '' }}" duration="{{ 300 }}" current="{{ tabActiveIndex }}" bindchange="handleSwiperChange">
   <swiper-item>
     <block wx:if="{{ !isLogin }}">
@@ -36,4 +36,18 @@
 </swiper>
 <block wx:if="{{ !isLogin }}">
   <yc-login-bar />
+</block> -->
+<block wx:if="{{ isLogin }}">
+  <block wx:if="{{ alumniBooks.length > 0 }}">
+    <yc-alumni wx:for="{{ alumniBooks }}" class-mate="{{ item }}" wx:key="_id" />
+  </block>
+  <block wx:else>
+    <van-empty description="还没有创建同学录！">
+      <van-button bind:click="handleCreateBook" type="primary" round size="small">去创建</van-button>
+    </van-empty>
+  </block>
+  <view class="create-btn" bindtap="handleCreateBook"></view>
 </block>
+<van-empty wx:else description="还没登录哟，快去登录吧！">
+  <van-button bind:click="handleToLogin" type="primary" round size="small">去登陆</van-button>
+</van-empty>

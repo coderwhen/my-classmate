@@ -7,6 +7,11 @@ export const addClassMate = (data = {}) => {
   return cloudFunction(data)
 }
 
+export const getClassMateSave = (data = {}) => {
+  data.type = "book-save-get"
+  return cloudFunction(data)
+}
+
 export const updateClassMateCover = (data = {}) => {
   data.type = "book-cover"
   return cloudFunction(data)

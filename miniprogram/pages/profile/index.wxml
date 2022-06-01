@@ -39,4 +39,3 @@
     </van-collapse-item>
   </van-collapse>
 </van-cell-group>
-<van-button bind:click="toPage">asd</van-button>

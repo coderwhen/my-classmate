@@ -11,7 +11,7 @@ exports.main = async (event, context) => {
     delete event.type
     const wxContext = cloud.getWXContext()
     if (bookId) {
-      const result = await db.doc(bookId).update({
+      const result = await db.doc(bookId).set({
         data: {
           cover: {
             status: 'done',

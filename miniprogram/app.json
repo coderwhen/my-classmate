@@ -10,8 +10,7 @@
     "pages/book-save/index",
     "pages/book-detail/index",
     "pages/book-edit/index",
-    "pages/book-success/index",
-    "pages/test/index"
+    "pages/book-success/index"
   ],
   "window": {
     "backgroundColor": "#ffffff",

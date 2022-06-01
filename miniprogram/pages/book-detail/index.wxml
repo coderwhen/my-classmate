@@ -1,4 +1,5 @@
 <!--pages/book-detail/index.wxml-->
+<page-meta page-style="{{ loading ? 'background-color: #fff; ': '' }}"/>
 <wxs module="tools" src="../../utils/index.wxs"></wxs>
 
 <view class="header" hidden="{{ true }}">
@@ -10,7 +11,8 @@
     <van-dropdown-item value="{{ value2 }}" bind:change="handleChange" options="{{ option2 }}" />
   </van-dropdown-menu>
 </view>
-<scroll-view class="box" bindscrolltolower="handleToLower" scroll-y>
+<van-skeleton wx:if="{{ sLoading }}" title row="3" />
+<scroll-view wx:else class="box" bindscrolltolower="handleToLower" scroll-y>
   <block wx:if="{{ bookList.length > 0 }}">
     <block wx:for="{{ bookList }}" wx:key="_id">
       <view class="book-edit" hover-class="active">

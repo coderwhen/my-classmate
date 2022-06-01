@@ -1,45 +1,41 @@
 <!--pages/profile/index.wxml-->
 <view class="userinfo" hover-class="hover" bindtap="handleUserInfoClick">
-    <view class="avatar">
-        <open-data wx:if="{{ !userInfo }}" type="userAvatarUrl"></open-data>
-        <image wx:else src="{{ userInfo.avatarUrl }}"></image>
-    </view>
-    <view class="r">
-        <block wx:if="{{ !userInfo }}">
-            <text>登录</text>
-            <text>微信快速登录</text>
-        </block>
-        <block wx:else>
-            <text>{{ userInfo.nickName }}</text>
-            <text>欢迎使用此小程序</text>
-            <!-- <button size="mini">更新头像</button> -->
-        </block>
-    </view>
+  <view class="avatar">
+    <open-data wx:if="{{ !userInfo }}" type="userAvatarUrl"></open-data>
+    <image wx:else src="{{ userInfo.avatarUrl }}"></image>
+  </view>
+  <view class="r">
+    <block wx:if="{{ !userInfo }}">
+      <text>登录</text>
+      <text>微信快速登录</text>
+    </block>
+    <block wx:else>
+      <text>{{ userInfo.nickName }}</text>
+      <text>欢迎使用此小程序</text>
+      <!-- <button size="mini">更新头像</button> -->
+    </block>
+  </view>
 </view>
 <view hidden class="my-info">
-    <view class="item" bindtap="handleMyBookClick">
-        <text class="count">1</text>
-        <text>我的同学录</text>
-    </view>
-    <view class="item">
-        <text class="count">1</text>
-        <text>我的同学录</text>
-    </view>
+  <view class="item" bindtap="handleMyBookClick">
+    <text class="count">1</text>
+    <text>我的同学录</text>
+  </view>
+  <view class="item">
+    <text class="count">1</text>
+    <text>我的同学录</text>
+  </view>
 </view>
 <van-cell-group title="关于">
-  <van-cell is-link size="large" title="关于我们" />
-  <van-cell is-link size="large" title="关于我们" />
-  <van-cell is-link size="large" title="关于我们" />
-  <van-cell is-link size="large" title="关于我们" />
+  <van-collapse border="{{ false }}" value="{{ activeNames }}" bind:change="onChange">
+    <van-collapse-item size="large" title="关于图片" name="1">
+      小程序中使用的图片均来自有赞Vant UI、Canva可画
+    </van-collapse-item>
+    <van-collapse-item size="large" title="关于作者" name="2">
+      苦逼大学生简单制作
+    </van-collapse-item>
+    <van-collapse-item size="large" title="关于小程序" name="3">
+      该小程序由个人用户开发、感谢您的使用！
+    </van-collapse-item>
+  </van-collapse>
 </van-cell-group>
-<van-collapse border="{{ false }}" value="{{ activeNames }}" bind:change="onChange">
-  <van-collapse-item size="large" title="标题1" name="1">
-    代码是写出来给人看的，附带能在机器上运行
-  </van-collapse-item>
-  <van-collapse-item size="large" title="标题2" name="2">
-    代码是写出来给人看的，附带能在机器上运行
-  </van-collapse-item>
-  <van-collapse-item size="large" title="标题3" name="3">
-    代码是写出来给人看的，附带能在机器上运行
-  </van-collapse-item>
-</van-collapse>

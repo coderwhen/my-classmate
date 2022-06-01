@@ -6,7 +6,7 @@ const {
 Page({
   data: {
     alumniBooks: [],
-    loading: false,
+    loading: true,
     error: false,
     isLogin: false
   },
@@ -23,6 +23,9 @@ Page({
       // wx.showLoading({
       //   title: '加载中',
       // })
+      this.setData({
+        loading: true
+      })
       getClassMate().then(res => {
         console.log(res)
         this.setData({
@@ -32,6 +35,9 @@ Page({
         console.log(err)
       }).finally(_ => {
         // wx.hideLoading()
+        this.setData({
+          loading: false
+        })
       })
     }
   },
@@ -54,7 +60,14 @@ Page({
     })
   },
   handleCreateBook(e) {
-    const { alumniBooks } = this.data
+    const { alumniBooks, loading } = this.data
+    if(loading) {
+      wx.showToast({
+        title: '马上就准备好了，请稍等片刻！',
+        icon: 'none',
+        duration: 1500
+      })
+    }
     if(alumniBooks.length >= 3) {
       wx.showToast({
         title: '您最多只能创建3个同学录哟！',

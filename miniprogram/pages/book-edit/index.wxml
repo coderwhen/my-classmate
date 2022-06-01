@@ -1,4 +1,5 @@
 <!--pages/book-edit/index.wxml-->
+<page-meta page-style="{{ loading ? 'background-color: #fff;': '' }}"/>
 <van-skeleton title row="3" wx:if="{{ loading }}" />
 <view wx:else class="book-edit">
   <van-row gutter="20">

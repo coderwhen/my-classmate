@@ -23,7 +23,8 @@ Page({
       page: 0,
       pageSize: 2
     },
-    loading: false,
+    sLoading: true,
+    loading: true,
     nohave: false,
     lower: true,
     dialog: {
@@ -54,6 +55,11 @@ Page({
       })
     }).catch(err => {
       console.log(err)
+    }).finally(_ => {
+      this.setData({
+        loading: false,
+        sLoading: false
+      })
     })
   },
   handleChange(e) {

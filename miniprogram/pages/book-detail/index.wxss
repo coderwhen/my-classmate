@@ -52,6 +52,7 @@ page {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  min-height: 30px;
 }
 
 .field text:nth-child(1) {

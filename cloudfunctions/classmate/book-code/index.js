@@ -23,7 +23,7 @@ exports.main = async (event, context) => {
       "page": 'pages/invitation/index',
       "scene": scene,
       "checkPath": false,
-      "envVersion": 'trial'
+      "envVersion": 'release'
     })
     const { fileID } = await cloud.uploadFile({
       fileContent: buffer,

@@ -23,16 +23,16 @@ Page({
     // 创建音乐元素
     const music = this.music = wx.createInnerAudioContext()
     music.onPlay(_ => {
+      console.log(_)
       this.handleMusicPlay()
     })
     music.onPause(_ => {
+      console.log('onPause', _)
       this.handleMusicPause()
     })
-    music.onError(_ => {
-      wx.showToast({
-        title: '音乐出现了问题，待会再试试吧！',
-        icon: 'none'
-      })
+    music.onEnded(_ => {
+      console.log(_)
+      this.handleMusicEnded()
     })
     if (e.scene) {
       this.setData({
@@ -114,7 +114,7 @@ Page({
         playList,
         currentMusic: 0
       }, _ => {
-        if(playList.length > 0) {
+        if (playList.length > 0) {
           this.music.src = playList[0].url
           this.music.play()
         }
@@ -124,9 +124,10 @@ Page({
     })
   },
   _createImage(e) {
-    const imageTask = [this.data.code, this.data.userInfo.avatarUrl, 'cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/yq.png'].map(url => wx.getImageInfo({
+    const imageTask = [this.data.code, this.data.userInfo.avatarUrl.replace('https://thirdwx.qlogo.cn', 'https://wx.qlogo.cn'), 'cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/yq.png'].map(url => wx.getImageInfo({
       src: url,
     }))
+
     return Promise.all(imageTask).then(([{ path: qrcode }, { path: avatarUrl }, { path: bg }]) => {
       return new Promise((reslove, reject) => {
         const ctx = wx.createCanvasContext('cav', this)
@@ -222,11 +223,23 @@ Page({
       this.music.play()
     })
   },
-  handleMusicPause(e) {
+  handleMusicPauseClick(e) {
     this.music.pause()
-    // this.musicAud.pause()
+  },
+  handleMusicEnded(e) {
+    const { currentMusic, playList } = this.data
+    const nextMusic = (currentMusic + 1) % playList.length
     this.setData({
-      currentMusic: -1,
+      currentMusic: nextMusic,
+      play: true
+    }, _ => {
+      this.music.src = playList[nextMusic].url
+      this.music.play()
+    })
+  },
+  handleMusicPause(e) {
+    console.log('pause', e)
+    this.setData({
       play: false
     })
   },
@@ -234,39 +247,5 @@ Page({
     this.setData({
       play: true
     })
-  },
-  handleTry(e) {
-    console.log(e)
-    new Promise((reslove, reject) => {
-      const query = wx.createSelectorQuery()
-      query.select('#cav1')
-        .fields({ node: true, size: true })
-        .exec(async (res) => {
-          const canvas = res[0].node
-          canvas.width = 500
-          canvas.height = 500
-          const ctx = canvas.getContext('2d')
-          const task = await wx.getImageInfo({
-            src: 'cloud://wwxp-2krlz.7777-wwxp-2krlz-1301102203/wxapp/yq.png',
-          })
-          const bg = canvas.createImage()
-          bg.src = task.path
-          bg.onload = function () {
-            ctx.drawImage(bg, 0, 0, 200, 200)
-          }
-          // wx.canvasToTempFilePath({
-          //   canvas: canvas,
-          //   success: r => {
-          //     console.log(r)
-          //     app.onSaveToPhone(r.tempFilePath)
-          //   }
-          // })
-        })
-
-    }).then(res => {
-
-    })
-
-
   }
 })

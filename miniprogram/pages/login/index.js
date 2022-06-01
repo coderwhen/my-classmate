@@ -9,7 +9,10 @@ Page({
     wx.getUserProfile({
       desc: 'desc',
     }).then(res => {
-      console.log(res)
+      wx.showLoading({
+        title: '登录中',
+        mask: true
+      })
       wx.cloud.callFunction({
         name: 'classmate',
         data: {
@@ -17,14 +20,26 @@ Page({
           userInfo: res.userInfo
         }
       }).then(resalt => {
-        // console.log(res)
+        console.log(resalt)
         app.globalData.userInfo = res.userInfo
         app.globalData.isLogin = true
         wx.navigateBack()
         wx.setStorageSync('_userInfo', res.userInfo)
-        // if(resalt)
+      }).catch(err => {
+        wx.showToast({
+          title: '前方发生错误,请稍后再试！',
+          icon: 'none',
+          duration: 1500
+        })
+      }).finally(() => {
+        wx.hideLoading()
       })
-    }).catch(err => { })
+    }).catch(err => {
+      wx.showToast({
+        title: '取消登录',
+        duration: 1500
+      })
+    })
   },
   handleLookLook(e) {
     wx.navigateBack()

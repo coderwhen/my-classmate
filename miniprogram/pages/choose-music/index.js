@@ -35,12 +35,12 @@ Page({
     const prev = pages[pages.length - 2]
     console.log(prev)
     const musicList = prev.data.musicList
-    if(musicList) {
+    if (musicList) {
       this.setData({
         musicList
       })
     }
-    if(historyList) {
+    if (historyList) {
       this.setData({
         historyList
       })
@@ -81,9 +81,9 @@ Page({
   },
   handleConfirm() {
     const keywords = this.data.keywords
-    const {historyList} = this.data
+    const { historyList } = this.data
     const history = historyList.findIndex(item => item === keywords)
-    if(history === -1) {
+    if (history === -1) {
       historyList.push(keywords)
     }
     this.setData({
@@ -109,9 +109,9 @@ Page({
   },
   handleTipsClick(e) {
     const keywords = e.currentTarget.dataset.tip.keyword
-    const {historyList} = this.data
+    const { historyList } = this.data
     const history = historyList.findIndex(item => item === keywords)
-    if(history === -1) {
+    if (history === -1) {
       historyList.push(keywords)
     }
     this.setData({
@@ -139,7 +139,7 @@ Page({
     const music = e.target.dataset.song
     const musicList = this.data.musicList
     const musicItem = musicList.find(item => item.id === music.id)
-    if(musicItem) {
+    if (musicItem) {
       wx.showToast({
         title: '已存在该歌曲！',
       })
@@ -154,7 +154,7 @@ Page({
     const music = e.target.dataset.song
     const id = music.id
     const musicItem = playList.findIndex(item => item.id === music.id)
-    if(musicItem > -1) {
+    if (musicItem > -1) {
       this.setData({
         currentMusic: musicItem
       }, () => {
@@ -179,7 +179,7 @@ Page({
     const music = e.target.dataset.song
     const musicList = this.data.musicList
     const deleteIndex = musicList.findIndex(item => music.id === item.id)
-    if(deleteIndex === -1) return
+    if (deleteIndex === -1) return
     musicList.splice(deleteIndex, 1)
     this.setData({
       musicList
@@ -193,13 +193,20 @@ Page({
     })
   },
   handleChooseSuccess(e) {
-    const pages = getCurrentPages()
-    const prvePage = pages[pages.length - 2]
-    prvePage.setData({
-      musicList: this.data.musicList
-    }, () => {
-      wx.navigateBack()
+    wx.showModal({
+      title: '部分歌曲可能是试听版，请先试听一遍！',
+      cancelColor: 'cancelColor',
+    }).then(res => {
+      if(!res.confirm) {return}
+      const pages = getCurrentPages()
+      const prvePage = pages[pages.length - 2]
+      prvePage.setData({
+        musicList: this.data.musicList
+      }, () => {
+        wx.navigateBack()
+      })
     })
+
   },
   onClose(e) {
     this.setData({

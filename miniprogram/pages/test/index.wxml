@@ -1,3 +1,0 @@
-<!--pages/test/index.wxml-->
-<text>pages/test/index.wxml</text>
-<audio id="audio" src="{{ src }}" controls></audio>

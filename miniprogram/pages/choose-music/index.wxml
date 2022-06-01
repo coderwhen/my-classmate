@@ -1,6 +1,6 @@
 <!--pages/choose-music/index.wxml-->
 <!-- 搜索栏 -->
-<van-search value="{{ keywords }}" placeholder="请输入搜索关键词" show-action bind:change="keywordInput" />
+<van-search value="{{ keywords }}" placeholder="请输入搜索关键词" show-action bind:search="handleConfirm" bind:change="keywordInput" />
 <!-- 最近搜索 -->
 <block wx:if="{{ current === 0 && keywords.length === 0 }}">
   <van-empty wx:if="{{ historyList.length === 0 }}" description="暂无历史搜索" />
@@ -30,7 +30,7 @@
 <!-- 搜索结果 -->
 <block wx:else>
   <view wx:if="{{ searchLoading }}" class="search-loading" style="text-align: center;">
-    加载中...
+    <van-loading size="24px" color="#1989fa">加载中...</van-loading>
   </view>
   <van-group wx:else>
     <block wx:for="{{ searchSongs }}" wx:key="id">
@@ -51,6 +51,7 @@
     <van-submit-bar 
       price="{{ 0 }}" 
       label="{{ ' ' }}" 
+      disabled="{{ musicList.length === 0 }}"
       button-type="primary" 
       button-text="完成" 
       price-class="none" 

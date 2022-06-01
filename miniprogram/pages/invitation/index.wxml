@@ -54,8 +54,8 @@
           size="large"
           label="{{ (item.artists[0] ? item.artists[0].name : '') + ' ' + (item.alias[0] ? item.alias[0] : '') }}">
           <view slot="right-icon">
-            <van-icon size="30px" wx:if="{{ item.id !== playList[currentMusic].id }}" bind:click="handleMusicClick" name="play-circle" data-song="{{ item }}" class="custom-icon" />
-            <van-icon size="30px" bind:click="handleMusicPause" wx:else name="pause-circle" class="custom-icon" />
+            <van-icon size="30px" wx:if="{{ item.id !== playList[currentMusic].id && play }}" bind:click="handleMusicClick" name="play-circle" data-song="{{ item }}" class="custom-icon" />
+            <van-icon size="30px" bind:click="handleMusicPauseClick" wx:else name="pause-circle" class="custom-icon" />
           </view>
         </van-cell>
       </block>

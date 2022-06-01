@@ -81,6 +81,13 @@ Page({
   },
   handleConfirm() {
     const keywords = this.data.keywords
+    if(keywords.length === 0) {
+      return wx.showToast({
+        title: '请输入内容搜索内容！',
+        icon: 'none',
+        duration: 1500
+      })
+    }
     const { historyList } = this.data
     const history = historyList.findIndex(item => item === keywords)
     if (history === -1) {
@@ -195,7 +202,7 @@ Page({
   handleChooseSuccess(e) {
     wx.showModal({
       title: '部分歌曲可能是试听版，请先试听一遍！',
-      cancelColor: 'cancelColor',
+      confirmColor: '#0FCEED'
     }).then(res => {
       if(!res.confirm) {return}
       const pages = getCurrentPages()

@@ -32,6 +32,16 @@ exports.main = async (event, context) => {
       }
 
     } else {
+      const { total = 0 } = await db.where({
+        openid: wxContext.OPENID
+      }).count()
+      if (total >= 3) {
+        return {
+          code: 500,
+          data: {},
+          msg: '您最多只能创建3个同学录哟！'
+        }
+      }
       const result = await db.add({
         data: {
           cover: {

@@ -67,6 +67,7 @@ Page({
         icon: 'none',
         duration: 1500
       })
+      return
     }
     if(alumniBooks.length >= 3) {
       wx.showToast({

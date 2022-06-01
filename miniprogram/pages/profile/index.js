@@ -28,4 +28,9 @@ Page({
       activeNames: event.detail,
     });
   },
+  toPage(e) {
+    wx.navigateTo({
+      url: '/pages/book-save/index',
+    })
+  }
 })

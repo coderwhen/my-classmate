@@ -158,19 +158,25 @@ Page({
 
 
       const { result } = await addClassMate(classmate)
-      const { msg } = result.data
+      const { msg, code } = result
 
-      wx.showLoading({
+      wx.showToast({
         title: msg,
-        mask: true
+        icon: 'none',
+        mask: true,
+        duration: 2000
       })
 
       setTimeout(() => {
         wx.hideLoading()
-        wx.redirectTo({
-          url: '/pages/invitation/index?scene='.concat(result.data.bookId),
-        })
-      }, 2000)
+        if(code === 200) {
+          wx.redirectTo({
+            url: '/pages/invitation/index?scene='.concat(result.data.bookId),
+          })
+        } else {
+          wx.navigateBack()
+        }
+      }, 1000)
 
     } catch (e) {
       console.log(e)

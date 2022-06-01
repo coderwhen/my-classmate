@@ -145,6 +145,14 @@ Page({
   handleJoin(e) {
     const music = e.target.dataset.song
     const musicList = this.data.musicList
+    console.log(musicList.length)
+    if(musicList.length >= 3) {
+      return wx.showToast({
+        title: '最多只能选取三首音乐哟！',
+        icon: 'none',
+        duration: 1000
+      })
+    }
     const musicItem = musicList.find(item => item.id === music.id)
     if (musicItem) {
       wx.showToast({

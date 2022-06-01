@@ -62,7 +62,7 @@
       <view>
         <van-tag type="primary" bind:tap="handleOpen">已选择 {{ musicList.length }} 首音乐</van-tag>
       </view>
-      <view slot="tip" bind:tap="handleOpen">为您的同学录选取音乐</view>
+      <view slot="tip" bind:tap="handleOpen">为您的同学录选取音乐,最多只能选取三首哟！</view>
     </van-submit-bar>
   </view>
 </block>

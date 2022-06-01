@@ -3,7 +3,8 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: null
+    userInfo: null,
+    activeNames: []
   },
   onShow(e) {
     this.setData({

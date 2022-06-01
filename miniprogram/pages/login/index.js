@@ -36,7 +36,8 @@ Page({
       })
     }).catch(err => {
       wx.showToast({
-        title: '取消登录',
+        title: '未登录不能体验完整功能哟！',
+        icon: 'none',
         duration: 1500
       })
     })

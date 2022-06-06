@@ -68,6 +68,7 @@ page {
   border-bottom: 1px dashed #0FCEED;
   padding: 7px 5px 5px 5px;
   font-size: 14px;
+  min-height: 30px;
 }
 
 .b-bottom {

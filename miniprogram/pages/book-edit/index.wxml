@@ -13,14 +13,14 @@
       <view class="field">
       <text>生日：</text>
       <!-- <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" /> -->
-      <picker class="input" mode="date" bindchange="handleDate">{{ fields.bir ? fields.bir : '你的生日' }}</picker>
+      <picker class="input {{ fields.bir ? '' : 'bir' }}" mode="date" bindchange="handleDate">{{ fields.bir ? fields.bir : '你的生日' }}</picker>
       <!-- <input class="input" data-field="bir" bind:input="onInput" placeholder="你的生日"/> -->
     </view>
     </van-col>
   </van-row>
   <view class="field">
     <text>手机：</text>
-    <input class="input" value="{{ fields.phone }}" data-field="phone" bind:input="onInput" placeholder="你的手机号" type="number"/>
+    <input class="input" maxlength="11" value="{{ fields.phone }}" data-field="phone" bind:input="onInput" placeholder="你的手机号" type="number"/>
   </view>
   <view class="field">
     <text>你的梦想：</text>
@@ -28,7 +28,7 @@
   </view>
   <view class="field">
     <text>对我说的话：</text>
-    <input class="input" maxlength="150" value="{{ fields.commit }}" data-field="commit" bind:input="onInput" placeholder="预留字段"/>
+    <input class="input" maxlength="150" value="{{ fields.commit }}" data-field="commit" bind:input="onInput" placeholder="你对我说的话"/>
   </view>
   <view class="field">
     <text>那些图片儿：</text>

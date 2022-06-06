@@ -31,6 +31,10 @@ page {
   font-size: 14px;
 }
 
+.field .input.bir {
+  color: #888;
+}
+
 .fixed {
   position: fixed;
   left: 0;

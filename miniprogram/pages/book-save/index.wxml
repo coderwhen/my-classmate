@@ -8,7 +8,7 @@
     <view class="cover">
         <view class="cover-box" bindtap="handleChooseImage">
           <block wx:if="{{ cover.url.length === 0 }}">
-            <image style="width: 100rpx; height: 70rpx;" src="/images/zhao.png" mode="aspectFit"/>
+            <van-icon name="photograph" size="50px"></van-icon>
             <text>添加封面</text>
           </block>
           <block wx:else>

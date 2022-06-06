@@ -24,10 +24,10 @@
     <block wx:else>
       <van-row gutter="10">
         <van-col span="12">
-          <van-button custom-class="btn" open-type="share" block>发给朋友</van-button>
+          <van-button custom-class="btn" icon="friends" open-type="share" block>发给朋友</van-button>
         </van-col>
         <van-col span="12">
-          <van-button custom-class="btn" bind:click="handleFirQ" block>发朋友圈</van-button>
+          <van-button custom-class="btn" icon="wechat" bind:click="handleFirQ" block>发朋友圈</van-button>
         </van-col>
       </van-row>
       <van-button custom-class="btn" bind:click="onSaveImage" type="primary" block>保存图片</van-button>
@@ -54,8 +54,8 @@
           size="large"
           label="{{ (item.artists[0] ? item.artists[0].name : '') + ' ' + (item.alias[0] ? item.alias[0] : '') }}">
           <view slot="right-icon">
-            <van-icon size="30px" wx:if="{{ item.id !== playList[currentMusic].id && play }}" bind:click="handleMusicClick" name="play-circle" data-song="{{ item }}" class="custom-icon" />
-            <van-icon size="30px" bind:click="handleMusicPauseClick" wx:else name="pause-circle" class="custom-icon" />
+            <van-icon size="30px" wx:if="{{ item.id === playList[currentMusic].id && play }}" bind:click="handleMusicPauseClick" name="pause-circle" class="custom-icon" />
+            <van-icon size="30px" wx:else bind:click="handleMusicClick" name="play-circle" data-song="{{ item }}" class="custom-icon" />
           </view>
         </van-cell>
       </block>

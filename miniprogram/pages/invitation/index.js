@@ -73,6 +73,11 @@ Page({
         })
       })
   },
+  onShow(e) {
+    if(this.music.src !== '') {
+      this.music.play()
+    }
+  },
   onShareAppMessage() {
     return {
       title: '同学帮我写个同学录吧！',

@@ -20,11 +20,12 @@ Page({
       isLogin: app.globalData.isLogin
     })
     if (app.globalData.isLogin) {
-      // wx.showLoading({
-      //   title: '加载中',
-      // })
       this.setData({
         loading: true
+      })
+      wx.showLoading({
+        title: '加载同学录中...',
+        mask: true
       })
       getClassMate().then(res => {
         console.log(res)
@@ -34,7 +35,7 @@ Page({
       }).catch(err => {
         console.log(err)
       }).finally(_ => {
-        // wx.hideLoading()
+        wx.hideLoading()
         this.setData({
           loading: false
         })

@@ -45,7 +45,6 @@
   </view>
   <van-divider
     dashed
-    customStyle="color: #1989fa; border-color: #1989fa; font-size: 18px; padding: 0 15px;"
     contentPosition="center">
     我也是有底线的
   </van-divider>

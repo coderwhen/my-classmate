@@ -143,7 +143,12 @@ Page({
         ctx.drawImage(bg, 0, 0, 345, 360)
         ctx.fillStyle = "#fff"
         // ctx.fillRect(15, 15, 50, 50)
+        ctx.save()
+        ctx.beginPath()
+        ctx.arc(15 + 25, 15 + 25, 25, 0,2 * Math.PI)
+        ctx.clip()
         ctx.drawImage(avatarUrl, 15, 15, 50, 50)
+        ctx.restore()
         ctx.setFontSize(16)
         ctx.fillText("懒羊羊睡醒了", 15, 90)
         ctx.setFontSize(26)

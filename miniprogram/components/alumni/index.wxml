@@ -10,12 +10,12 @@
     </view>
     <view class="b">
       <view class="music">
-        <van-icon bind:click="handleShareClick" name="music" size="25px"/>
+        <van-icon custom-class="icon" catch:tap="handleShareClick" name="music" size="25px"/>
         <text>已选取{{ classMate.musicList.length }}首音乐</text>
       </view>
       <view class="btns">
-        <van-icon catch:tap="handleEditClick" name="todo-list" size="25px"/>
-        <van-icon catch:tap="handleShareClick" name="share" size="25px"/>
+        <van-icon custom-class="icon" catch:tap="handleEditClick" name="todo-list" size="25px"/>
+        <van-icon custom-class="icon" catch:tap="handleShareClick" name="share" size="25px"/>
       </view>
     </view>
   </view>

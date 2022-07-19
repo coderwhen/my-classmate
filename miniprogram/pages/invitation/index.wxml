@@ -22,6 +22,7 @@
       <van-button custom-class="btn" block bind:click="handleLookLook">再看看</van-button>
     </block>
     <block wx:else>
+      <van-button custom-class="btn" bind:click="onSaveImage" type="primary" block>保存图片</van-button>
       <van-row gutter="10">
         <van-col span="12">
           <van-button custom-class="btn" icon="friends" open-type="share" block>发给朋友</van-button>
@@ -30,7 +31,6 @@
           <van-button custom-class="btn" icon="wechat" bind:click="handleFirQ" block>发朋友圈</van-button>
         </van-col>
       </van-row>
-      <van-button custom-class="btn" bind:click="onSaveImage" type="primary" block>保存图片</van-button>
     </block>
   </view>
 </scroll-view>

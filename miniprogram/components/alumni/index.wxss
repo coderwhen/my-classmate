@@ -27,7 +27,7 @@
   height: 60rpx;
   font-size: 50rpx;
   line-height: 60rpx;
-  color: #000000;
+  color: #444;
   opacity: 1;
 }
 
@@ -62,4 +62,8 @@
 .music {
   display: flex;
   align-items: center;
+}
+
+.icon {
+  color: #666;
 }

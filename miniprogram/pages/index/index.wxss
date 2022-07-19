@@ -19,7 +19,7 @@
   height: 260rpx;
   line-height: 260rpx;
   background-color: #eeeeee;
-  /* border-radius: 30rpx; */
+  border-radius: 20rpx;
 }
 
 .notice {
